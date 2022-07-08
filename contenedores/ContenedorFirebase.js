@@ -1,7 +1,7 @@
 
 import admin from "firebase-admin";
 import Normalizer from "../tools/normalizer.js"
-import mensajesChat from '../data/chat.js'
+
 
 let norm = new Normalizer();
 
@@ -30,14 +30,14 @@ const collection = db.collection("chatSocket")
 const mensajes = collection.doc("chatSocket")
 
 class ContenedorFirebase {
-    
+
     // OBTENER MENSAJES
     async getMessages() { // NO RECIBE NADA Y DEVUELVE EL OBJETO MENSAJES
         try {
             const data = await collection.get()
             const response = data.docs[0].data()
             return norm.denormalizar(response)
-        }catch (err){
+        } catch (err) {
             console.log("Error: no existen registros, devuelve objeto de creación")
             return {
                 "id": "mensajes",
@@ -53,27 +53,27 @@ class ContenedorFirebase {
             chat.mensajes.push(object)
             await this.saveFile(chat)
             return null
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
     }
-    
-    async saveFile(docs) { 
+
+    async saveFile(docs) {
         let docsNorm = norm.normalizar(docs)
         await mensajes.update(docsNorm)
         console.log("Successfully saved")
         return docs;
     }
-    
-        async clearMessages() { // LIMPIA EL OBJETO MENSAJES
-            try {
-                await mensajes.delete()
-            } catch (err) {
-                console.log(err)
-            }
-        }
 
-    async compresion(){
+    async clearMessages() { // LIMPIA EL OBJETO MENSAJES
+        try {
+            await mensajes.delete()
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    async compresion() {
         try {
             let chat = await this.getMessages()
             let chatNorm = norm.normalizar(chat)
@@ -81,7 +81,7 @@ class ContenedorFirebase {
             let conNorm = JSON.stringify(chatNorm).length
             let compresion = Math.floor(conNorm / sinNorm * 100)
             return compresion
-        } catch(err) {
+        } catch (err) {
             console.log(err)
         }
     }

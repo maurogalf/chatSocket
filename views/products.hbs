@@ -4,26 +4,10 @@
             <h1 class="m-5 text-white">Productos</h1>
         </div>
     </nav>
-    <form onsubmit="return addProduct()">
-        <div class="mb-3">
-            <label for="title" class="form-label text-white">Titulo del curso</label>
-            <input name="title" type="text" class="form-control" id="title">
-        </div>
-        <div class="mb-3">
-            <label for="price" class="form-label text-white">Precio</label>
-            <input name="price" type="text" class="form-control" id="price">
-        </div>
-        <div class="mb-3">
-            <label for="thumbnail" class="form-label text-white">Link a la imagen</label>
-            <input name="thumbnail" type="text" class="form-control" id="thumbnail">
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
 </div>
 <table class="table table-dark table-striped mt-5">
     <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col">Nombre del Curso</th>
             <th scope="col">Precio</th>
             <th scope="col">Logo</th>
@@ -32,11 +16,11 @@
     <tbody id="form">
         {{#each data}}
         <tr>
-            <th scope="row">{{this.id}}</th>
-            <td>
+            <th scope="row">
                 {{this.title}}
-            </td>
-            <td>$ {{this.price}}
+            </th>
+            <td>
+                {{this.price}}
             </td>
             <td>
                 <img style="max-width: 50px;" src={{this.thumbnail}}>
@@ -46,16 +30,37 @@
     </tbody>
 </table>
 <div class="bg-light p-3 rounded">
-    <div class="bg-dark p-3 rounded container-fluid ">
+    <div class="bg-dark p-3 rounded row container-fluid justify-content-center">
         <h2 class="text-white text-center">Chat</h2>
+        <div id="compBox">
+        {{#if compresion}}
+            <h3 class="text-white text-center">Porcentaje de compresion : <span id="compresion">{{compresion}}</span>%</h3>
+        {{/if}}
+        </div>
+        <button type="button" onclick="complete()" class="btn g-2 btn-info m-3">Completar Automáticamente</button>
         <form onsubmit="return sendMessage()" class="row g-3 justify-content-center" >
+            <div class="row g-4 justify-content-center">
             <div class="col-auto">
-                <label class="visually-hidden text-white">Password</label>
-                <input type="email" class="form-control" id="user" placeholder="E-mail">
+                <input type="email" class="form-control" id="email" placeholder="E-mail">
             </div>
             <div class="col-auto">
-                <label class="visually-hidden text-white">Password</label>
-                <input type="text" class="form-control" id="message" placeholder="Mensaje">
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" id="apellido" placeholder="Apellido">
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" id="edad" placeholder="Edad">
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" id="alias" placeholder="Alias">
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" id="avatar" placeholder="Avatar">
+            </div>
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" id="mensaje" placeholder="Mensaje">
             </div>
             <div class="col-auto">
                 <button disabled type="submit" id="btnSend" class="btn btn-primary mb-3">Enviar</button>
@@ -64,7 +69,7 @@
         <h2 class="text-white text-center">Mensajes</h2>
         <div id="chatBox" class="bg-light  rounded p-3" style="min-height: 200px;">
             {{#each chat}}
-            <p><spam class="fw-bold text-primary" >{{this.user}}</spam> <spam style="color: brown" >{{this.date}}</spam> :  <spam class="fst-italic text-success">{{this.message}}</spam></p>
+            <p><img style="width:50px; height:50px" src={{this.author.avatar}} alt=""><spam class="fw-bold text-primary" > {{this.author.nombre}} {{this.author.apellido}}</spam> :  <spam class="fst-italic text-success">{{this.text}}</spam></p>
             {{/each}}
         </div>
     </div>

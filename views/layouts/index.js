@@ -2,69 +2,67 @@ const socket = io()
 
 socket.on('connect', () => {
     console.log("conectado")
-}
-)
-socket.on("productAdded", (data) => {
-    imprimirProducto(data);
 })
 
 socket.on("newMsg", (data) => {
     imprimirMensaje(data);
 })
-//ENVIO PRODUCTO
-addProduct = () => {
-    let pr = {
-        title : document.querySelector("#title").value,
-        price : document.querySelector("#price").value,
-        thumbnail : document.querySelector("#thumbnail").value
-    }
-    console.log(pr)
-    socket.emit("newproduct", pr)
-    document.querySelector("#title").value = "";
-    document.querySelector("#price").value = "";
-    document.querySelector("#thumbnail").value = "";
-    return false
-}
-//IMPRIMO PRODUCTOS
-imprimirProducto = (newPr) => {
-    document.querySelector("#form").innerHTML += `    
-    <tr>
-    <th scope="row">${newPr.id}</th>
-    <td>
-    ${newPr.title}
-    </td>
-    <td>$ ${newPr.price}
-    </td>
-    <td>
-    <img  style="max-width: 50px;" src=${newPr.thumbnail} >
-    </td>
-    </tr>
-    `
-}
+
+socket.on("complete", (user) => {
+    document.getElementById("email").value = user.email;
+    document.getElementById("nombre").value = user.nombre;
+    document.getElementById("apellido").value = user.apellido;
+    document.getElementById("edad").value = user.edad;
+    document.getElementById("alias").value = user.alias;
+    document.getElementById("avatar").value = user.avatar;
+    document.getElementById("mensaje").value = user.mensaje;
+    document.getElementById("btnSend").disabled = false;
+})
+
 //IMPRIMO MENSAJES
-imprimirMensaje = (newMsg) => {
+imprimirMensaje = ({newMsg, compresion}) => {
     document.querySelector("#chatBox").innerHTML += `
-    <p><spam class="fw-bold text-primary" >${newMsg.user}</spam> <spam style="color: brown" >${newMsg.date}</spam> :  <spam class="fst-italic text-success">${newMsg.message}</spam> </p>
+    <p>
+        <img style="width:50px; height:50px" src=${newMsg.author.avatar} alt="">
+        <spam class="fw-bold text-primary" >${newMsg.author.nombre} ${newMsg.author.apellido}</spam> :  
+        <spam class="fst-italic text-success">${newMsg.text}</spam> 
+    </p>
     `
+    if(newMsg.id > 1){
+        document.querySelector("#compresion").innerText = compresion
+    } else {
+        document.querySelector("#compBox").innerHTML = `
+        <h3 class="text-white text-center">Porcentaje de compresion : <span id="compresion">${compresion}</span>%</h3>
+        `
+    }
 }
 //ENVIO MENSAJE
-sendMessage = () => {
-    let msg = {
-        user : document.querySelector("#user").value,
-        date: new Date(),
-        message : document.querySelector("#message").value
+const sendMessage = () => {
+    let author = {
+    id : document.getElementById("email").value,
+    nombre: document.getElementById("nombre").value,
+    apellido: document.getElementById("apellido").value,
+    edad: document.getElementById("edad").value,
+    alias: document.getElementById("alias").value,
+    avatar:document.getElementById("avatar").value
+    } 
+    let text = document.getElementById('mensaje').value
+    let newMsg = {
+        author: author,
+        text: text
     }
-    socket.emit("newMsg", msg)
-    document.querySelector("#message").value = "";
-    document.querySelector("#user").disabled;
+    socket.emit("newMsg", newMsg)
+    document.getElementById("mensaje").value = "";
+    document.getAnimations("email").disabled;
     return false
 }
 
 //DESHABILITAR BOTTON
 let button = document.getElementById("btnSend");
-let user = document.getElementById("user");
-user.addEventListener("keyup", () => {
-    if (user.value != "") {
+let user = document.getElementById("email");
+user.addEventListener("change", () => {
+    console.log("pasando pora aca")
+    if (user != "") {
         button.disabled = false;
     }
     else {
@@ -72,7 +70,10 @@ user.addEventListener("keyup", () => {
     }
 }
 )
-
+// COMPLETAR FORMULARIO AUTOMATICAMENTE
+const complete = () => {
+    socket.emit("complete")
+}
 
 
 
