@@ -61,7 +61,6 @@ const sendMessage = () => {
 let button = document.getElementById("btnSend");
 let user = document.getElementById("email");
 user.addEventListener("change", () => {
-    console.log("pasando pora aca")
     if (user != "") {
         button.disabled = false;
     }
