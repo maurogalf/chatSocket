@@ -19,6 +19,7 @@ app.use(session({
         mongoOptions: advacedOptions,
         ttl: 60
     }),
+    rolling: true,
     secret: 'mauro',
     resave: true,
     saveUninitialized: true,
