@@ -5,13 +5,13 @@ import Normalizer from "../tools/normalizer.js"
 
 const norm = new Normalizer();
 
-mongoose.connect('mongodb+srv://user:mongo123456@cluster0.tg0ib.mongodb.net/?retryWrites=true&w=majority');
+const conn = mongoose.createConnection(process.env.MONGODB_ATLAS_CLUSTER);
 mongoose.connection.on('error', (err) => {
     console.log(err);
 }
 );
 mongoose.connection.on('open', () => {
-    console.log('MongoDB connected');
+    console.log('MongoDB Atlas connected');
 });
 
 const mensajesSchema = new Schema({
@@ -19,7 +19,7 @@ const mensajesSchema = new Schema({
     result: String
 });
 
-const collection = mongoose.model('mensaje', mensajesSchema)
+const collection = conn.model('mensaje', mensajesSchema)
 
 class ContenedorMongo {
     

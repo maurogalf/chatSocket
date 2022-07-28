@@ -1,14 +1,29 @@
+import "dotenv/config";
+
 import express from "express";
 import http from "http";
-import daosContenedor from "./daos/index.js";
-import products from "./data/FakerProducts.js";
+
 import handlebars from "express-handlebars";
 import { faker } from '@faker-js/faker';
-import passport from './passport/local-auth.js'
 import session from 'express-session'
+import cookieParser from "cookie-parser";
+import MongoStore from "connect-mongo";
+import yargs from "yargs";
+
+import products from "./data/FakerProducts.js";
+import passport from './passport/local-auth.js'
+import daosContenedor from "./daos/index.js";
+import router from "./routes/routes.js";
 
 const app = express();
 
+// YARGS
+const args = yargs(process.argv.slice(2))
+    .default({ PORT: 8080 })
+    .alias({ p: "PORT" }).argv;
+
+// PUERTO
+const port = args.PORT;
 
 // ARCHIVOS ESTATICOS
 app.use(express.static("views/layouts"));
@@ -16,16 +31,26 @@ app.use(express.static("views/layouts"));
 // SERVER
 const server = http.createServer(app);
 
-// PUERTO
-const port = process.env.PORT || 8080;
 
 //SESSION
+app.use(cookieParser());
 app.use(session({
     secret: 'secret',
     cookie: { maxAge: 600000 },
     resave: true,
-    saveUninitialized: true
-}))
+    rolling: true,
+    saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: "mongodb://localhost:27017/sessions",
+        mongoOptions: {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        },
+    }),
+    cookie: {
+        maxAge: 600000
+    }
+}));
 
 // PASSPORT
 app.use(passport.initialize());
@@ -36,6 +61,9 @@ app.use(passport.session());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+//ROUTES 
+app.use("/api", router)
 
 
 // Configuracion de handlebars
@@ -141,6 +169,19 @@ app.get("/logout", (req, res) => {
     req.logout(() => res.redirect("/login"));
 })
 
+
+app.get("/info", (req, res) => {
+    const info = {
+        argumentos: JSON.stringify(args),
+        platform: process.platform,
+        nodeVersion: process.version,
+        processId: process.pid,
+        dir: process.cwd(),
+        memory: process.memoryUsage().rss,
+        path: process.execPath
+    }
+    res.render("info", { info: info })
+})
 
 
 server.listen(port, () => {

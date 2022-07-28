@@ -1,0 +1,73 @@
+<div class="container mb-5">
+    <nav class=" container navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <h1 class="m-5 text-white">Info</h1>
+        </div>
+    </nav>
+</div>
+<table class="table table-dark table-striped mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Datos</th>
+            <th scope="col">Valor</th>
+        </tr>
+    </thead>
+    <tbody id="form">
+        <tr>
+            <th scope="row">
+                Argumentos de entrada: 
+            </th>
+            <td>
+                {{info.argumentos}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Nombre de la plataforma:
+            </th>
+            <td>
+                {{info.platform}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Versión de Node:
+            </th>
+            <td>
+                {{info.nodeVersion}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Memoria total reservada:
+            </th>
+            <td>
+                {{info.memory}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Path de ejecución:
+            </th>
+            <td>
+                {{info.path}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Process id: 
+            </th>
+            <td>
+                {{info.processId}}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                Carpeta del proyecto: 
+            </th>
+            <td>
+                {{info.dir}}
+            </td>
+        </tr>
+    </tbody>
+</table>

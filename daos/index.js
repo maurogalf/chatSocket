@@ -1,10 +1,6 @@
-import dotenv from 'dotenv';
-
-dotenv.config({path: "./.env"});
-
 let daosContenedor;
 
-switch (process.env.VARIABLEDEENTORNO) {
+switch (process.env.MESSAGE_SOURCE) {
     case "archivo":
         const { default : ContenedorArchivo } = await import ("../contenedores/ContenedorArchivo.js")
         daosContenedor = new ContenedorArchivo()
