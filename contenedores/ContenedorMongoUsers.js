@@ -9,7 +9,6 @@ mongoose.connection.on('error', (err) => {
 });
 
 mongoose.connection.on('open', () => {
-    console.log('MongoDB connected');
 });
 
 const userSchema = new Schema({

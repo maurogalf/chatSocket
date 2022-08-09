@@ -24,7 +24,6 @@ admin.initializeApp({
     databaseURL: process.env.FIREBASE_DATABASE_URL
 });
 
-console.log("Firebase Initialized")
 
 const db = admin.firestore();
 const collection = db.collection("chatSocket")
