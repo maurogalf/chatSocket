@@ -1,10 +1,12 @@
 import Router from 'express'
 import os from "os";
+import compression from "compression";
 
 import daosContenedor from "../daos/index.js";
 import passport from '../passport/local-auth.js'
 import products from "../data/FakerProducts.js";
 import yargs from 'yargs';
+import logger from '../winston.js';
 
 
 const router = Router()
@@ -31,7 +33,7 @@ router.get("/", isAuthenticated, (req, res) => {
             res.render("products", { data: products, chat: data.mensajes, user: req.username });
         }
     }).catch((err) => {
-        console.log(err)
+        logger.error(err)
     })
 });
 
@@ -69,6 +71,36 @@ router.get("/logout", (req, res) => {
 
 
 router.get("/info", (req, res) => {
+    const info = {
+        argumentos: JSON.stringify(args._),
+        platform: process.platform,
+        nodeVersion: process.version,
+        processId: process.pid,
+        dir: process.cwd(),
+        memory: process.memoryUsage().rss,
+        path: process.execPath,
+        processQ: os.cpus().length
+    }
+    res.render("info", { info: info })
+})
+
+
+router.get("/info-con-consola", (req, res) => {
+    const info = {
+        argumentos: JSON.stringify(args._),
+        platform: process.platform,
+        nodeVersion: process.version,
+        processId: process.pid,
+        dir: process.cwd(),
+        memory: process.memoryUsage().rss,
+        path: process.execPath,
+        processQ: os.cpus().length
+    }
+    console.log(info)
+    res.render("info", { info: info })
+})
+
+router.get("/infozip", compression(), (req, res) => {
     const info = {
         argumentos: JSON.stringify(args._),
         platform: process.platform,

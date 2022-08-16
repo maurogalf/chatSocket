@@ -1,0 +1,368 @@
+Statistical profiling result from con-clg.log, (5757 ticks, 0 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   5124   89.0%          C:\Windows\SYSTEM32\ntdll.dll
+    623   10.8%          C:\Program Files\nodejs\node.exe
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      3    0.1%   30.0%  LazyCompile: *resolve node:path:158:10
+      1    0.0%   10.0%  LazyCompile: *normalizeString node:path:66:25
+      1    0.0%   10.0%  Function: ^wrapSafe node:internal/modules/cjs/loader:1017:18
+      1    0.0%   10.0%  Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+      1    0.0%   10.0%  Function: ^multiplication32 file:///C:/Mauro/Proyectos/Websocket/chatSocket/node_modules/@faker-js/faker/dist/esm/chunk-GCRDD34F.mjs:7:419
+      1    0.0%   10.0%  Function: ^isFileType node:fs:205:20
+      1    0.0%   10.0%  Function: ^getModuleJob node:internal/modules/esm/loader:285:21
+      1    0.0%   10.0%  Function: ^<anonymous> node:internal/validators:73:3
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+     10    0.2%  100.0%  JavaScript
+      0    0.0%    0.0%  C++
+     26    0.5%  260.0%  GC
+   5747   99.8%          Shared libraries
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   5124   89.0%  C:\Windows\SYSTEM32\ntdll.dll
+     55    1.1%    C:\Program Files\nodejs\node.exe
+      5    9.1%      C:\Program Files\nodejs\node.exe
+      1   20.0%        LazyCompile: ~populateConstructorExports C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\http-errors\index.js:258:37
+      1  100.0%          Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\http-errors\index.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1059:37
+      1   20.0%        LazyCompile: ~config C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\dotenv\lib\main.js:55:17
+      1  100.0%          Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\dotenv\config.js:1:11
+      1  100.0%            Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\dotenv\config.js:1:1
+      1   20.0%        Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\socket.io\dist\index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1059:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      1   20.0%        Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\color\index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1059:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      1   20.0%        C:\Program Files\nodejs\node.exe
+      1  100.0%          Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\@google-cloud\firestore\build\src\index.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1059:37
+      3    5.5%      Function: ^realpathSync node:fs:2425:22
+      2   66.7%        Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+      2  100.0%          Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      2  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      1   33.3%        Function: ^finalizeResolution node:internal/modules/esm/resolve:397:28
+      1  100.0%          Function: ^moduleResolve node:internal/modules/esm/resolve:988:23
+      1  100.0%            Function: ^defaultResolve node:internal/modules/esm/resolve:1128:30
+      2    3.6%      LazyCompile: ~realpathSync node:fs:2425:22
+      2  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:393:20
+      2  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:494:28
+      2  100.0%            LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      2    3.6%      LazyCompile: ~parse C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      2  100.0%        LazyCompile: ~parseWithoutProcessing C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:33:32
+      2  100.0%          LazyCompile: ~parse C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:51:15
+      2  100.0%            LazyCompile: ~compileInput C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:507:24
+      1    1.8%      Script: ~<anonymous> file:///C:/Mauro/Proyectos/Websocket/chatSocket/contenedores/ContenedorMongoUsers.js:1:1
+      1  100.0%        C:\Program Files\nodejs\node.exe
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            LazyCompile: ~run node:internal/modules/esm/module_job:193:12
+      1    1.8%      LazyCompile: ~urlencoded C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\body-parser\lib\types\urlencoded.js:43:21
+      1  100.0%        LazyCompile: ~runServer file:///C:/Mauro/Proyectos/Websocket/chatSocket/app.js:19:19
+      1  100.0%          Script: ~<anonymous> file:///C:/Mauro/Proyectos/Websocket/chatSocket/index.js:1:1
+      1  100.0%            C:\Program Files\nodejs\node.exe
+      1    1.8%      LazyCompile: ~toRealPath node:internal/modules/cjs/loader:393:20
+      1  100.0%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:494:28
+      1  100.0%          LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      1  100.0%            LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:70:31
+      1    1.8%      LazyCompile: ~slice node:buffer:594:12
+      1  100.0%        LazyCompile: ~toString node:buffer:783:46
+      1  100.0%          LazyCompile: ~readFileSync node:fs:450:22
+      1  100.0%            LazyCompile: ~cjsPreparseModuleExports node:internal/modules/esm/translators:194:34
+      1    1.8%      LazyCompile: ~setupTraceCategoryState node:internal/bootstrap/pre_execution:277:33
+      1  100.0%        LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:28:36
+      1  100.0%          Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.8%      LazyCompile: ~serializeInto C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\bson\lib\parser\serializer.js:553:23
+      1  100.0%        LazyCompile: ~serialize C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\bson\lib\bson.js:124:19
+      1  100.0%          LazyCompile: ~toBin C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\cmap\commands.js:82:10
+      1  100.0%            LazyCompile: ~writeCommand C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\cmap\message_stream.js:40:17
+      1    1.8%      LazyCompile: ~resolvePossibleLambda C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:527:56
+      1  100.0%        LazyCompile: ~compile C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1  100.0%          LazyCompile: ~compileInput C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:507:24
+      1  100.0%            LazyCompile: ~ret C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:515:15
+      1    1.8%      LazyCompile: ~resolve node:path:158:10
+      1  100.0%        LazyCompile: *toNamespacedPath node:path:618:19
+      1  100.0%          LazyCompile: ~existsSync node:fs:290:20
+      1  100.0%            LazyCompile: ~_createLogDirIfNotExist C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\winston\lib\winston\transports\file.js:688:26
+      1    1.8%      LazyCompile: ~readableAddChunk node:internal/streams/readable:236:26
+      1  100.0%        Function: ^Readable.push node:internal/streams/readable:227:35
+      1  100.0%          LazyCompile: ~parserOnMessageComplete node:_http_common:147:33
+      1    1.8%      LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+      1    1.8%      LazyCompile: ~nextTick node:internal/process/task_queues:104:18
+      1  100.0%        LazyCompile: ~resume C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\readable-stream\lib\_stream_readable.js:902:16
+      1  100.0%          LazyCompile: ~Readable.resume C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\readable-stream\lib\_stream_readable.js:886:38
+      1  100.0%            LazyCompile: ~Readable.on C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\readable-stream\lib\_stream_readable.js:804:34
+      1    1.8%      LazyCompile: ~log C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\winston\lib\winston\transports\console.js:44:6
+      1  100.0%        LazyCompile: ~_write C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\winston-transport\index.js:69:51
+      1  100.0%          LazyCompile: ~doWrite C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\readable-stream\lib\_stream_writable.js:404:17
+      1  100.0%            LazyCompile: ~writeOrBuffer C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\readable-stream\lib\_stream_writable.js:363:23
+      1    1.8%      LazyCompile: ~isPreconditionFailure C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\send\index.js:326:77
+      1  100.0%        LazyCompile: ~send C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\send\index.js:602:43
+      1  100.0%          LazyCompile: ~onstat C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\send\index.js:717:33
+      1  100.0%            LazyCompile: ~<anonymous> node:fs:197:10
+      1    1.8%      LazyCompile: ~getStderr node:internal/bootstrap/switches/is_main_thread:137:19
+      1  100.0%        Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\debug\src\node.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1059:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      1    1.8%      LazyCompile: ~getMessage node:internal/errors:411:20
+      1  100.0%        LazyCompile: ~NodeError node:internal/errors:343:28
+      1  100.0%          LazyCompile: ~onParseError node:internal/url:552:22
+      1  100.0%            C:\Program Files\nodejs\node.exe
+      1    1.8%      LazyCompile: ~get node:internal/streams/duplex:94:8
+      1  100.0%        LazyCompile: ~afterConnect node:net:1141:22
+      1    1.8%      LazyCompile: ~exports.setup C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb-connection-string-url\node_modules\whatwg-url\lib\URL.js:49:17
+      1  100.0%        LazyCompile: ~URL C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb-connection-string-url\node_modules\whatwg-url\lib\URL.js:90:16
+      1  100.0%          LazyCompile: ~URLWithoutHost C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb-connection-string-url\lib\index.js:74:1
+      1  100.0%            LazyCompile: ~ConnectionString C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb-connection-string-url\lib\index.js:82:16
+      1    1.8%      LazyCompile: ~escapeStringRegexp C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\@colors\colors\lib\colors.js:78:34
+      1  100.0%        LazyCompile: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\@colors\colors\lib\colors.js:99:43
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\@colors\colors\lib\colors.js:96:23
+      1    1.8%      LazyCompile: ~end C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\express-session\index.js:250:27
+      1  100.0%        LazyCompile: ~send C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\express\lib\response.js:111:25
+      1  100.0%          LazyCompile: ~done C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\express\lib\response.js:1033:27
+      1  100.0%            LazyCompile: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\express-handlebars\dist\express-handlebars.js:251:47
+      1    1.8%      LazyCompile: ~enabledHooksExist node:internal/async_hooks:475:27
+      1  100.0%        LazyCompile: ~popAsyncContext node:internal/async_hooks:554:25
+      1  100.0%          LazyCompile: ~emitAfterScript node:internal/async_hooks:518:25
+      1  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+      1    1.8%      LazyCompile: ~emit node:events:475:44
+      1  100.0%        LazyCompile: ~close node:internal/fs/promises:190:11
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1    1.8%      LazyCompile: ~deserialize C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\bson\lib\parser\deserializer.js:36:21
+      1  100.0%        LazyCompile: ~deserialize C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\bson\lib\bson.js:175:21
+      1  100.0%          LazyCompile: ~parse C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\cmap\commands.js:374:10
+      1  100.0%            LazyCompile: ~onMessage C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\cmap\connection.js:159:14
+      1    1.8%      LazyCompile: ~createServer node:http:58:22
+      1  100.0%        LazyCompile: ~runServer file:///C:/Mauro/Proyectos/Websocket/chatSocket/app.js:19:19
+      1  100.0%          Script: ~<anonymous> file:///C:/Mauro/Proyectos/Websocket/chatSocket/index.js:1:1
+      1  100.0%            C:\Program Files\nodejs\node.exe
+      1    1.8%      LazyCompile: ~createFunctionContext C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:216:56
+      1  100.0%        LazyCompile: ~compile C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1  100.0%          LazyCompile: ~compileInput C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:507:24
+      1  100.0%            LazyCompile: ~ret C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:515:15
+      1    1.8%      LazyCompile: ~completeEndSession C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\sessions.js:138:40
+      1  100.0%        LazyCompile: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\sessions.js:133:52
+      1  100.0%          LazyCompile: ~maybePromise C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\utils.js:398:22
+      1  100.0%            LazyCompile: ~endSession C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\sessions.js:129:15
+      1    1.8%      LazyCompile: ~checkServer C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\sdam\monitor.js:143:21
+      1  100.0%        LazyCompile: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\sdam\monitor.js:229:12
+      1  100.0%          LazyCompile: ~executeAndReschedule C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\utils.js:702:34
+      1  100.0%            LazyCompile: ~makeInterruptibleAsyncInterval C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\utils.js:647:40
+      1    1.8%      LazyCompile: ~cache node:internal/http:26:15
+      1  100.0%        LazyCompile: ~utcDate node:internal/http:21:17
+      1  100.0%          LazyCompile: ~_storeHeader node:_http_outgoing:374:22
+      1  100.0%            LazyCompile: ~writeHead node:_http_server:270:19
+      1    1.8%      LazyCompile: ~WritableState C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\readable-stream\lib\_stream_writable.js:103:23
+      1  100.0%        LazyCompile: ~Writable C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\readable-stream\lib\_stream_writable.js:229:18
+      1  100.0%          LazyCompile: ~Duplex C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\readable-stream\lib\_stream_duplex.js:58:16
+      1  100.0%            LazyCompile: ~Transform C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\readable-stream\lib\_stream_transform.js:98:19
+      1    1.8%      LazyCompile: ~Timeout node:internal/timers:167:17
+      1  100.0%        LazyCompile: ~setUnrefTimeout node:internal/timers:372:25
+      1  100.0%          LazyCompile: ~setStreamTimeout node:internal/stream_base_commons:237:26
+      1  100.0%            LazyCompile: ~write C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\cmap\connection.js:462:15
+      1    1.8%      LazyCompile: ~SubExpression C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:236:40
+      1  100.0%        LazyCompile: ~MustacheStatement C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:215:48
+      1  100.0%          LazyCompile: ~accept C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:101:26
+      1  100.0%            LazyCompile: ~Program C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:113:28
+      1    1.8%      LazyCompile: ~SocketAddress node:internal/socketaddress:47:14
+      1  100.0%        LazyCompile: ~addAddress node:internal/blocklist:60:13
+      1  100.0%          Function: ~<anonymous> node:internal/modules/esm/fetch_module:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    1.8%      LazyCompile: ~Socket._writeGeneric node:net:791:42
+      1  100.0%        LazyCompile: ~Socket._writev node:net:823:36
+      1  100.0%          LazyCompile: ~doWrite node:internal/streams/writable:398:17
+      1  100.0%            LazyCompile: ~clearBuffer node:internal/streams/writable:529:21
+      1    1.8%      LazyCompile: ~ServerResponse node:_http_server:178:24
+      1  100.0%        LazyCompile: ~parserOnIncoming node:_http_server:857:26
+      1  100.0%          LazyCompile: ~parserOnHeadersComplete node:_http_common:77:33
+      1    1.8%      LazyCompile: ~Readable.pipe node:internal/streams/readable:654:35
+      1  100.0%        LazyCompile: ~Connection C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\cmap\connection.js:40:16
+      1  100.0%          LazyCompile: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\cmap\connect.js:31:63
+      1  100.0%            LazyCompile: ~callback C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\cmap\connect.js:261:31
+      1    1.8%      LazyCompile: ~Pager.set C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\memory-pager\index.js:81:32
+      1  100.0%        LazyCompile: ~Bitfield C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\sparse-bitfield\index.js:5:19
+      1  100.0%          LazyCompile: ~Bitfield C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\sparse-bitfield\index.js:5:19
+      1  100.0%            LazyCompile: ~read C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\saslprep\lib\memory-code-points.js:15:14
+      1    1.8%      LazyCompile: ~HandlebarsEnvironment C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars\base.js:46:31
+      1  100.0%        LazyCompile: ~create C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars.runtime.js:40:16
+      1  100.0%          Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\handlebars\dist\cjs\handlebars.runtime.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1059:37
+      1    1.8%      LazyCompile: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\mongo_client.js:130:52
+      1  100.0%        LazyCompile: ~maybePromise C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\utils.js:398:22
+      1  100.0%          LazyCompile: ~connect C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongodb\lib\mongo_client.js:126:12
+      1  100.0%            LazyCompile: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongoose\lib\connection.js:793:31
+      1    1.8%      LazyCompile: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\express-handlebars\dist\express-handlebars.js:201:47
+      1  100.0%        LazyCompile: ~step C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\express-handlebars\dist\express-handlebars.js:31:18
+      1  100.0%          LazyCompile: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\express-handlebars\dist\express-handlebars.js:30:40
+      1  100.0%            LazyCompile: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\express-handlebars\dist\express-handlebars.js:20:46
+      1    1.8%      LazyCompile: *getPathFromURLWin32 node:internal/url:1363:29
+      1  100.0%        Function: ^fileURLToPath node:internal/url:1416:23
+      1  100.0%          Function: ^getPackageScopeConfig node:internal/modules/esm/resolve:253:31
+      1  100.0%            Function: ^packageResolve node:internal/modules/esm/resolve:897:24
+      1    1.8%      Function: ~<anonymous> node:internal/fs/rimraf:1:1
+      1  100.0%        Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1  100.0%          Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      1  100.0%            Function: ~<anonymous> node:internal/fs/promises:1:1
+      1    1.8%      Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongoose\lib\query.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1059:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:969:33
+      1    1.8%      Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\firebase-admin\lib\app\credential-internal.js:35:20
+      1  100.0%        Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\firebase-admin\lib\app\credential-internal.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1059:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      1    1.8%      Function: ^getPackageConfig node:internal/modules/esm/resolve:197:26
+      1  100.0%        Function: ^packageResolve node:internal/modules/esm/resolve:897:24
+      1  100.0%          Function: ^moduleResolve node:internal/modules/esm/resolve:988:23
+      1  100.0%            Function: ^defaultResolve node:internal/modules/esm/resolve:1128:30
+
+    623   10.8%  C:\Program Files\nodejs\node.exe
+    543   87.2%    C:\Program Files\nodejs\node.exe
+    185   34.1%      Function: ^compileFunction node:vm:308:25
+    184   99.5%        Function: ^wrapSafe node:internal/modules/cjs/loader:1017:18
+    183   99.5%          Function: ^Module._compile node:internal/modules/cjs/loader:1059:37
+    178   97.3%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      5    2.7%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1114:37
+     96   17.7%      Function: ^moduleStrategy node:internal/modules/esm/translators:112:56
+     96  100.0%        Function: ^moduleProvider node:internal/modules/esm/loader:322:28
+     96  100.0%          C:\Program Files\nodejs\node.exe
+     35    6.4%      Function: ^stat node:internal/modules/cjs/loader:151:14
+     23   65.7%        Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+     21   91.3%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+     21  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      2    8.7%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      1   50.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:757:24
+      1   50.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+     12   34.3%        Function: ^tryFile node:internal/modules/cjs/loader:384:17
+     12  100.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+     12  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+     32    5.9%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+     26   81.3%        Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      3   11.5%          Function: ~<anonymous> node:crypto:1:1
+      3  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    7.7%          Function: ~<anonymous> node:tls:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    7.7%          Function: ~<anonymous> node:internal/process/esm_loader:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    7.7%          Function: ~<anonymous> node:internal/modules/esm/loader:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    7.7%          Function: ~<anonymous> node:internal/modules/esm/fetch_module:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    7.7%          Function: ~<anonymous> node:http:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    3.8%          LazyCompile: ~lazyRequire node:internal/crypto/util:67:21
+      1  100.0%            LazyCompile: ~get node:crypto:287:8
+      1    3.8%          LazyCompile: ~lazyLoadStreams node:fs:2858:25
+      1  100.0%            LazyCompile: ~get ReadStream node:fs:3001:17
+      1    3.8%          LazyCompile: ~initCJSParse node:internal/modules/esm/translators:58:28
+      1  100.0%            LazyCompile: ~commonjsStrategy node:internal/modules/esm/translators:148:60
+      1    3.8%          Function: ~<anonymous> node:internal/modules/esm/get_source:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    3.8%          Function: ~<anonymous> node:internal/crypto/util:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    3.8%          Function: ~<anonymous> node:internal/crypto/hkdf:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    3.8%          Function: ~<anonymous> node:internal/cluster/round_robin_handle:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    3.8%          Function: ~<anonymous> node:internal/cluster/primary:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    3.8%          Function: ~<anonymous> node:internal/child_process:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    3.8%          Function: ~<anonymous> node:child_process:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    3.8%          Function: ~<anonymous> node:_tls_wrap:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    3.8%          Function: ~<anonymous> node:_http_common:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    3.8%          Function: ~<anonymous> node:_http_client:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      4   12.5%        Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      4  100.0%          Function: ^loadNativeModule node:internal/modules/cjs/helpers:44:26
+      4  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      2    6.3%        LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      2  100.0%          LazyCompile: ~loadNativeModule node:internal/modules/cjs/helpers:44:26
+      2  100.0%            LazyCompile: ~builtinStrategy node:internal/modules/esm/translators:254:58
+     25    4.6%      Function: ^realpathSync node:fs:2425:22
+     22   88.0%        Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+     19   86.4%          Function: ^tryFile node:internal/modules/cjs/loader:384:17
+     18   94.7%            Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      1    5.3%            Function: ^tryPackage node:internal/modules/cjs/loader:338:20
+      2    9.1%          Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      2  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      1    4.5%          LazyCompile: ~tryFile node:internal/modules/cjs/loader:384:17
+      1  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      2    8.0%        Function: ^finalizeResolution node:internal/modules/esm/resolve:397:28
+      2  100.0%          Function: ^moduleResolve node:internal/modules/esm/resolve:988:23
+      2  100.0%            Function: ^defaultResolve node:internal/modules/esm/resolve:1128:30
+      1    4.0%        LazyCompile: ~finalizeResolution node:internal/modules/esm/resolve:397:28
+      1  100.0%          Function: ^moduleResolve node:internal/modules/esm/resolve:988:23
+      1  100.0%            LazyCompile: ~defaultResolve node:internal/modules/esm/resolve:1128:30
+     14    2.6%      C:\Program Files\nodejs\node.exe
+      2   14.3%        Function: ^readPackage node:internal/modules/cjs/loader:290:21
+      1   50.0%          Function: ^resolveExports node:internal/modules/cjs/loader:472:24
+      1  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      1   50.0%          Function: ^readPackageScope node:internal/modules/cjs/loader:321:26
+      1  100.0%            Function: ^trySelf node:internal/modules/cjs/loader:441:17
+      1    7.1%        LazyCompile: ~resolvePackageTargetString node:internal/modules/esm/resolve:507:36
+      1  100.0%          LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:572:30
+      1  100.0%            LazyCompile: ~packageExportsResolve node:internal/modules/esm/resolve:678:31
+      1    7.1%        LazyCompile: ~populateMaps C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mime-types\index.js:154:23
+      1  100.0%          Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mime-types\index.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1059:37
+      1    7.1%        LazyCompile: ~isIPv6 node:internal/net:35:16
+      1  100.0%          LazyCompile: ~isIP node:internal/net:39:14
+      1  100.0%            LazyCompile: ~lookup node:dns:97:16
+      1    7.1%        LazyCompile: ~formatProperty node:internal/util/inspect:1810:24
+      1  100.0%          LazyCompile: ~formatRaw node:internal/util/inspect:820:19
+      1  100.0%            LazyCompile: ~formatValue node:internal/util/inspect:745:21
+      1    7.1%        LazyCompile: ~finalizeResolution node:internal/modules/esm/resolve:397:28
+      1  100.0%          LazyCompile: ~moduleResolve node:internal/modules/esm/resolve:988:23
+      1  100.0%            LazyCompile: ~defaultResolve node:internal/modules/esm/resolve:1128:30
+      1    7.1%        LazyCompile: ~add C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongoose\lib\schema.js:530:36
+      1  100.0%          LazyCompile: ~Schema C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mongoose\lib\schema.js:95:16
+      1  100.0%            Script: ~<anonymous> file:///C:/Mauro/Proyectos/Websocket/chatSocket/contenedores/ContenedorMongoUsers.js:1:1
+      1    7.1%        LazyCompile: ~Mime.lookup C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\mime\mime.js:69:33
+      1  100.0%          LazyCompile: ~contentType C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\express\lib\response.js:619:32
+      1  100.0%            LazyCompile: ~send C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\express\lib\response.js:111:25
+      1    7.1%        LazyCompile: ~<anonymous> file:///C:/Mauro/Proyectos/Websocket/chatSocket/node_modules/yargs/build/lib/yargs-factory.js:1031:21
+      1  100.0%          LazyCompile: ~YargsInstance file:///C:/Mauro/Proyectos/Websocket/chatSocket/node_modules/yargs/build/lib/yargs-factory.js:76:16
+      1  100.0%            LazyCompile: ~<anonymous> file:///C:/Mauro/Proyectos/Websocket/chatSocket/node_modules/yargs/build/lib/yargs-factory.js:27:12
+      1    7.1%        Function: ~<anonymous> C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\express\lib\express.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1059:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      1    7.1%        Function: ^toNamespacedPath node:path:618:19
+      1  100.0%          Function: ^stat node:internal/modules/cjs/loader:151:14
+      1  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      1    7.1%        Function: ^splitRoot node:fs:2375:33
+      1  100.0%          Function: ^realpathSync node:fs:2425:22
+      1  100.0%            Function: ^finalizeResolution node:internal/modules/esm/resolve:397:28
+      1    7.1%        Function: ^<anonymous> node:internal/fs/utils:358:35
+      1  100.0%          Function: ^<anonymous> node:internal/fs/utils:669:38
+      1  100.0%            Function: ^realpathSync node:fs:2425:22
+      9    1.7%      Function: ^readSync node:fs:684:18
+      9  100.0%        Function: ^tryReadSync node:fs:429:21
+      9  100.0%          Function: ^readFileSync node:fs:450:22
+      7   77.8%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      1   11.1%            LazyCompile: ~Module._extensions..json node:internal/modules/cjs/loader:1164:39
+      1   11.1%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1114:37
+      8    1.5%      Function: ^closeSync node:fs:526:19
+      8  100.0%        Function: ^closeSync C:\Mauro\Proyectos\Websocket\chatSocket\node_modules\graceful-fs\graceful-fs.js:72:24
+      8  100.0%          Function: ^readFileSync node:fs:450:22
+      8  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1114:37
+

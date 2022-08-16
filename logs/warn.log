@@ -1,0 +1,7 @@
+{"level":"warn","message":"Invalid routes: undefined"}
+{"level":"warn","message":"Invalid routes: undefined"}
+{"level":"warn","message":"Invalid routes: /info2"}
+{"level":"warn","message":"Invalid routes: /info2methodGET"}
+{"level":"warn","message":"Invalid routes: /info2methodGET"}
+{"level":"warn","message":"Invalid routes: /pepemethodGET"}
+{"level":"warn","message":"Invalid route: /pepe, Method: GET"}
