@@ -5,3 +5,4 @@
 {"level":"warn","message":"Invalid routes: /info2methodGET"}
 {"level":"warn","message":"Invalid routes: /pepemethodGET"}
 {"level":"warn","message":"Invalid route: /pepe, Method: GET"}
+{"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
