@@ -6,7 +6,7 @@ import runServer from "./app.js";
 import logger from "./winston.js";
 
 // PUERTO
-const port = parseInt(process.argv[2]) || 8080;
+const port = process.env.PORT || parseInt(process.argv[2]) || 8080;
 
 const modoCluster = process.argv[3] == "CLUSTER";
 
