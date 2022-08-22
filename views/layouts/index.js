@@ -33,7 +33,7 @@ imprimirMensaje = ({ newMsg, compresion }) => {
         document.querySelector("#compresion").innerText = compresion;
     } else {
         document.querySelector("#compBox").innerHTML = `
-        <h3 class="text-white text-center">Porcentaje de compresion : <span id="compresion">${compresion}</span>%</h3>
+        <h3 class="text-white text-center">Compression percentage : <span id="compresion">${compresion}</span>%</h3>
         `;
     }
 };

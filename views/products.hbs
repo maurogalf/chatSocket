@@ -1,7 +1,7 @@
 <div class="container mb-5">
     <nav class=" container navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <h1 class="m-5 text-white">Productos</h1>
+            <h1 class="m-5 text-white">Products</h1>
         </div>
     </nav>
 </div>
@@ -12,8 +12,8 @@
 <table class="table table-dark table-striped mt-5">
     <thead>
         <tr>
-            <th scope="col">Nombre del Curso</th>
-            <th scope="col">Precio</th>
+            <th scope="col">Product name</th>
+            <th scope="col">Price</th>
             <th scope="col">Logo</th>
         </tr>
     </thead>
@@ -38,10 +38,10 @@
         <h2 class="text-white text-center">Chat</h2>
         <div id="compBox">
         {{#if compresion}}
-            <h3 class="text-white text-center">Porcentaje de compresion : <span id="compresion">{{compresion}}</span>%</h3>
+            <h3 class="text-white text-center">Compression percentage : <span id="compresion">{{compresion}}</span>%</h3>
         {{/if}}
         </div>
-        <button type="button" onclick="complete()" class="btn g-2 btn-info m-3">Completar Automáticamente</button>
+        <button type="button" onclick="complete()" class="btn g-2 btn-info m-3">Auto-complete</button>
         <form onsubmit="return sendMessage()" class="row g-3 justify-content-center" >
             <div class="row g-4 justify-content-center">
             <div class="col-auto">
@@ -67,10 +67,10 @@
                 <input type="text" class="form-control" id="mensaje" placeholder="Mensaje">
             </div>
             <div class="col-auto">
-                <button disabled type="submit" id="btnSend" class="btn btn-primary mb-3">Enviar</button>
+                <button disabled type="submit" id="btnSend" class="btn btn-primary mb-3">Send</button>
             </div>
         </form>
-        <h2 class="text-white text-center">Mensajes</h2>
+        <h2 class="text-white text-center">Messages</h2>
         <div id="chatBox" class="bg-light  rounded p-3" style="min-height: 200px;">
             {{#each chat}}
             <p><img style="width:50px; height:50px" src={{this.author.avatar}} alt=""><spam class="fw-bold text-primary" > {{this.author.nombre}} {{this.author.apellido}}</spam> :  <spam class="fst-italic text-success">{{this.text}}</spam></p>
