@@ -1,8 +1,7 @@
-import logger from "../../winston.js";
 const socket = io();
 
 socket.on("connect", () => {
-    logger.info("conectado");
+    console.log("conectado");
 });
 
 socket.on("newMsg", (data) => {
@@ -68,7 +67,8 @@ user.addEventListener("change", () => {
         button.disabled = true;
     }
 });
+
 // COMPLETAR FORMULARIO AUTOMATICAMENTE
-const complete = () => {
+function complete() {
     socket.emit("complete");
 };
