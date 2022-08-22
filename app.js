@@ -13,7 +13,6 @@ import MongoStore from "connect-mongo";
 import passport from "./passport/local-auth.js";
 import daosContenedor from "./daos/index.js";
 import router from "./routes/routes.js";
-import routerRandoms from "./routes/routerRandoms.js";
 import logger from "./winston.js";
 
 const runServer = (port) => {
@@ -35,7 +34,7 @@ const runServer = (port) => {
             rolling: true,
             saveUninitialized: true,
             store: MongoStore.create({
-                mongoUrl: "mongodb://localhost:27017/sessions",
+                mongoUrl: process.env.MONGODB_ATLAS_CLUSTER,
                 mongoOptions: {
                     useNewUrlParser: true,
                     useUnifiedTopology: true,
