@@ -26,7 +26,7 @@ export const sendMessage = (order, phone) => {
         .create({
             body: `Your order was sent successfully, it was created with the id ${order.order_id}`,
             messagingServiceSid: "MGbc93a8e9d82fc6feff7a9580af35f82f",
-            to: `+54${phone}`,
+            to: `${phone}`,
         })
         .then((message) => console.log(message.sid))
         .done();
