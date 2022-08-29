@@ -151,7 +151,7 @@ router.get("/cart", isAuthenticated, (req, res) => {
                 userCart.push({ ...prod, cant: cartProd.cant });
             });
             const finish = userCart.length > 0;
-            res.render("cartdetail", {
+            res.render("cartDetail", {
                 userCart: userCart,
                 user: req.user.username,
                 showFinish: finish,
