@@ -5,8 +5,9 @@ const storage = multer.diskStorage({
         cb(null, "./public");
     },
     filename: function (req, file, cb) {
+        let fileNameExtension = file.originalname.replace(/\s/g, "-").toLowerCase().split(".");
         const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-        cb(null, `${file.filename}-${uniqueSuffix}.png`);
+        cb(null, `${fileNameExtension[0]}-${uniqueSuffix}.${fileNameExtension[1]}`);
     },
 });
 

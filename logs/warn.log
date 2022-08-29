@@ -33,3 +33,15 @@
 {"level":"warn","message":"Invalid route: /delete/VUEJS, Method: POST"}
 {"level":"warn","message":"Invalid route: /delete/VUEJS, Method: POST"}
 {"level":"warn","message":"Invalid route: /products, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-1661800919272-814226921.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-1661805406211-289708428.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /undefined-1661805839923-158565733.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /undefined-1661806209295-27059461.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-1661800919272-814226921.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-1661800919272-814226921.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-1661800919272-814226921.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-1661800919272-814226921.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-con, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-con, Method: GET"}
