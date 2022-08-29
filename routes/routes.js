@@ -156,8 +156,8 @@ router.get("/cart", isAuthenticated, (req, res) => {
                 user: req.user.username,
                 showFinish: finish,
             });
-        });
-    });
+        }).catch(err => console.error(err));
+    }).catch(err => console.log(err));
 });
 
 router.post("/delete/:code", (req, res) => {
