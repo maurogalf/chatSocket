@@ -8,7 +8,7 @@ import logger from "./winston.js";
 // PUERTO
 const port = process.env.PORT || parseInt(process.argv[2]) || 8080;
 
-const modoCluster = process.argv[3] == "CLUSTER";
+const modoCluster = process.argv[3] || process.env.MODO_CLUSTER === "true" ;
 
 if (modoCluster && cluster.isPrimary) {
     for (let i = 0; i < os.cpus().length; i++) {

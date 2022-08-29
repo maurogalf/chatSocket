@@ -1,0 +1,40 @@
+<div class="container">
+    <nav class=" container navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <h1 class="m-5 text-white">Ingresar Nuevo Curso</h1>
+            <a href="../productos?admin=true">
+                <button type="button" class="btn bg-white">Ver Productos</button>
+            </a>
+            <form action="/api/carrito", method="post">
+                <button type="submit" class="btn bg-white">Crear Nuevo Carrito</button>
+            </form>
+        </div>
+    </nav>
+    <form action="form/newproduct?admin=true", method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label text-white">Titulo del curso</label>
+            <input name="name" type="text" class="form-control" id="name" >
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label text-white">Descripción</label>
+            <input name="description" type="text" class="form-control" id="description">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label text-white">Código</label>
+            <input name="code" type="text" class="form-control" id="code">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label text-white">Link a la imagen</label>
+            <input name="thumbnail" type="text" class="form-control" id="thumbnail">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label text-white">Precio</label>
+            <input name="price" type="text" class="form-control" id="price">
+        </div>
+        <div class="mb-3">
+            <label for="thumbnail" class="form-label text-white">Stock</label>
+            <input name="stock" type="number" class="form-control" id="stock">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>

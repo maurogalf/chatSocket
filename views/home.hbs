@@ -1,0 +1,88 @@
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid justify-content-between">
+        <div>
+            <h2 class="text-white">Welcome {{user}}</h2>
+        </div>
+        <div>
+            <a class="navbar-brand" href="#">
+                <button class="btn btn-outline-success me-2" disabled type="button">Products</button>
+            </a>
+            <a class="navbar-brand" href="/cart">
+                <button class="btn btn-outline-success me-2" type="button">Cart</button>
+            </a>
+            <a class="navbar-brand" href="/profile">
+                <button class="btn btn-outline-success me-2" type="button">Profile</button>
+            </a>
+            <a class="navbar-brand" href="/logout">
+                <button class="btn btn-outline-danger me-2" type="button">LogOut</button>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container d-flex flex-wrap justify-content-around p-3">
+
+    {{#each products}}
+    <div class="card m-3 text-center rounded" style="max-width: 18rem;">
+        <form action="/addproduct/{{this.code}}" method="post">
+            <div>
+                <img class="card-img-top" src={{this.thumbnail}} style="max-width: 10rem;" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="card-text">$ {{this.price}}</p>
+                <button type="submit" class="btn btn-dark">Add to cart</button>
+            </div>
+        </form>
+    </div>
+    {{/each}}
+</div>
+
+<div class="bg-light p-3 rounded">
+    <div class="bg-dark p-3 rounded row container-fluid justify-content-center">
+        <h2 class="text-white text-center">Chat</h2>
+        <div id="compBox">
+            {{#if compresion}}
+            <h3 class="text-white text-center">Compression percentage : <span id="compresion">{{compresion}}</span>%
+            </h3>
+            {{/if}}
+        </div>
+        <button type="button" onClick="complete()" class="btn g-2 btn-info m-3">Auto-complete</button>
+        <form onsubmit="return sendMessage()" class="row g-3 justify-content-center">
+            <div class="row g-4 justify-content-center">
+                <div class="col-auto">
+                    <input type="email" class="form-control" id="email" placeholder="E-mail">
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="apellido" placeholder="Apellido">
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="edad" placeholder="Edad">
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="alias" placeholder="Alias">
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="avatar" placeholder="Avatar">
+                </div>
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" id="mensaje" placeholder="Mensaje">
+            </div>
+            <div class="col-auto">
+                <button disabled type="submit" id="btnSend" class="btn btn-primary mb-3">Send</button>
+            </div>
+        </form>
+        <h2 class="text-white text-center">Messages</h2>
+        <div id="chatBox" class="bg-light  rounded p-3" style="min-height: 200px;">
+            {{#each chat}}
+            <p><img style="width:50px; height:50px" src={{this.author.avatar}} alt="">
+                <spam class="fw-bold text-primary"> {{this.author.nombre}} {{this.author.apellido}}</spam> : <spam
+                    class="fst-italic text-success">{{this.text}}</spam>
+            </p>
+            {{/each}}
+        </div>
+    </div>
+</div>

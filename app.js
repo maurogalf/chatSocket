@@ -15,6 +15,7 @@ import daosContenedor from "./daos/index.js";
 import router from "./routes/routes.js";
 import logger from "./winston.js";
 
+
 const runServer = (port) => {
     const app = express();
 
@@ -48,7 +49,8 @@ const runServer = (port) => {
 
     // MIDDLEWARE
     app.use(express.json());
-    app.use(express.urlencoded({ extended: true }));
+    app.use(express.urlencoded({ extended: true }));3
+    app.use(express.static(`public`));
 
     // PASSPORT
     app.use(passport.initialize());

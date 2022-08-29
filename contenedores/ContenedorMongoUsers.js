@@ -12,7 +12,7 @@ mongoose.connection.on("open", () => {});
 
 const userSchema = new Schema({
     username: String,
-    password: String,
+    password: String
 });
 
 const User = mongoose.model("users", userSchema);

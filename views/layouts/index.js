@@ -57,18 +57,85 @@ const sendMessage = () => {
     return false;
 };
 
-//DESHABILITAR BOTTON
-let button = document.getElementById("btnSend");
-let user = document.getElementById("email");
-user.addEventListener("change", () => {
-    if (user != "") {
-        button.disabled = false;
+const formChange = () => {
+    let button = document.getElementById("btnSend");
+    let username = document.getElementById("username");
+    let name = document.getElementById("name");
+    let address = document.getElementById("address");
+    let age = document.getElementById("age");
+    let phone = document.getElementById("phone");
+    let avatar = document.getElementById("avatar");
+    let password = document.getElementById("password");
+    let passwordConfirm = document.getElementById("confirm-pw");
+
+    if (
+        username.value !== "" &&
+        name.value !== "" &&
+        address.value !== "" &&
+        age.value !== "" &&
+        phone.value !== "" &&
+        avatar.value !== "" &&
+        password.value !== ""
+    ) {
+        if (password.value !== passwordConfirm.value) {
+            button.disabled = true;
+            if (document.getElementById("message") === null) {
+                button.parentElement.insertAdjacentHTML(
+                    "afterbegin",
+                    `<div id="message">Please confirm password. </div>`
+                );
+            }
+        } else {
+            document.getElementById("message") &&
+                document.getElementById("message").remove();
+            if (!isImage(avatar.value)) {
+                button.parentElement.insertAdjacentHTML(
+                    "afterbegin",
+                    `<div id="message-image">Please image file only. </div>`
+                );
+            } else {
+                document.getElementById("message-image") && document.getElementById("message-image").remove();
+                button.disabled = false;
+            }
+        }
     } else {
         button.disabled = true;
     }
-});
+};
+
+const getExtension = (filename) => {
+    let extension = filename.split(".").pop().toLowerCase();
+    return extension;
+};
+
+const isImage = (filename) => {
+    let extension = getExtension(filename);
+    switch (extension) {
+        case "jpg":
+        case "jpeg":
+        case "png":
+        case "gif":
+        case "bmp":
+        case "svg":
+            return true;
+    }
+    return false;
+};
+
+//DESHABILITAR BOTTON
+if (document.location.pathname === "/") {
+    let button = document.getElementById("btnSend");
+    let user = document.getElementById("email");
+    user.addEventListener("change", () => {
+        if (user != "") {
+            button.disabled = false;
+        } else {
+            button.disabled = true;
+        }
+    });
+}
 
 // COMPLETAR FORMULARIO AUTOMATICAMENTE
 function complete() {
     socket.emit("complete");
-};
+}

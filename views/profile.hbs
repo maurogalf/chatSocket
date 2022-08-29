@@ -1,0 +1,42 @@
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid justify-content-between">
+        <div>
+            <h2 class="text-white">Profile {{user.username}}</h2>
+        </div>
+        <div>
+            <a class="navbar-brand" href="/">
+                <button class="btn btn-outline-success me-2" type="button">Products</button>
+            </a>
+            <a class="navbar-brand" href="/cart">
+                <button class="btn btn-outline-success me-2" type="button">Cart</button>
+            </a>
+            <a class="navbar-brand" href="#">
+                <button class="btn btn-outline-success me-2" disabled type="button">Profile</button>
+            </a>
+            <a class="navbar-brand" href="/logout">
+                <button class="btn btn-outline-danger me-2" type="button">LogOut</button>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container d-flex justify-content-center">
+
+<div class="card bg-secondary text-white text-bg-secondary m-5" style="width: 80vw;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src={{user.avatar}} class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Name: {{user.name}}</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item bg-secondary">E-mail: {{user.username}}</li>
+                    <li class="list-group-item bg-secondary">Address: {{user.address}}</li>
+                    <li class="list-group-item bg-secondary">Age: {{user.age}}</li>
+                    <li class="list-group-item bg-secondary">Phone number: {{user.phone}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
