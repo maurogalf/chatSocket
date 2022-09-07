@@ -2,7 +2,7 @@ import Router from "express";
 import os from "os";
 import compression from "compression";
 
-import passport from "../passport/local-auth.js";
+import passport from "../tools/passport/local-auth.js";
 import yargs from "yargs";
 import upload from "../tools/storage.js";
 import contUserInfo from "../data/contenedores/ContenedorMongoUsersInfo.js";
@@ -11,10 +11,10 @@ import getRegisterPage from "../controllers/getRegisterPage.js";
 import getLoginPage from "../controllers/getLoginPage.js";
 import getFailLoginPage from "../controllers/getFailLoginPage.js";
 import getFailRegisterPage from "../controllers/getFailRegisterPage.js";
-import {setNewUser} from "../services/users/setNewUser.js";
+import { setNewUser } from "../services/users/setNewUser.js";
 import { getProfilePage } from "../controllers/getProfilePage.js";
 import { setNewProduct } from "../services/products/setNewProduct.js";
-import {setNewProductToCartUser} from "../services/users/setNewProductToCartUser.js";
+import { setNewProductToCartUser } from "../services/users/setNewProductToCartUser.js";
 import { getCartUserPage } from "../controllers/getCartUserPage.js";
 import { setNewOrder } from "../services/orders/setNewOrder.js";
 
@@ -34,7 +34,7 @@ const args = yargs(process.argv.slice(2))
     .alias({ p: "PORT" }).argv;
 
 // RUTA PRINCIPAL
-router.get("/", isAuthenticated,  compression(), getHomePage );
+router.get("/", isAuthenticated, compression(), getHomePage);
 
 router.get("/login", isNotAuthenticated, getLoginPage);
 
@@ -44,12 +44,16 @@ router.get("/register", isNotAuthenticated, getRegisterPage);
 
 router.get("/failregister", getFailRegisterPage);
 
-router.post("/login", passport.authenticate("login", {
+router.post(
+    "/login",
+    passport.authenticate("login", {
         successRedirect: "/",
         failureRedirect: "/faillogin",
-    }));
-    
-router.post("/register",
+    })
+);
+
+router.post(
+    "/register",
     upload.single("avatar"),
     passport.authenticate("register", { failureRedirect: "/failregister" }),
     setNewUser
@@ -59,7 +63,7 @@ router.get("/logout", (req, res) => {
     req.logout(() => res.redirect("/login"));
 });
 
-router.get("/profile", isAuthenticated, getProfilePage );
+router.get("/profile", isAuthenticated, compression(), getProfilePage);
 
 router.get("/form", isAuthenticated, (req, res) => {
     res.render("form");
@@ -67,7 +71,7 @@ router.get("/form", isAuthenticated, (req, res) => {
 
 router.post("/form/newproduct", setNewProduct);
 
-router.post("/addproduct/:code", setNewProductToCartUser );
+router.post("/addproduct/:code", setNewProductToCartUser);
 
 router.get("/cart", isAuthenticated, getCartUserPage);
 
@@ -77,6 +81,8 @@ router.post("/delete/:code", (req, res) => {
 });
 
 router.post("/checkout", setNewOrder);
+
+// ESTAS RUTAS LAS DEJO ASI PORQUE LAS VOY A SACAR
 
 router.get("/info", (req, res) => {
     const info = {

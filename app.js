@@ -6,11 +6,11 @@ import handlebars from "express-handlebars";
 import { faker } from "@faker-js/faker";
 import cookieParser from "cookie-parser";
 
-import passport from "./passport/local-auth.js";
+import passport from "./tools/passport/local-auth.js";
 import daosContenedor from "./data/daos/index.js";
 import router from "./routes/routes.js";
 import logger from "./tools/winston.js";
-import sessionMiddleware from "./modules/session/middleware.js";
+import sessionMiddleware from "./tools/session/middleware.js";
 
 const runServer = (port) => {
     const app = express();
