@@ -1,89 +1,66 @@
-import "dotenv/config";
-
 import express from "express";
 import http from "http";
 
 import { Server } from "socket.io";
 import handlebars from "express-handlebars";
 import { faker } from "@faker-js/faker";
-import session from "express-session";
 import cookieParser from "cookie-parser";
-import MongoStore from "connect-mongo";
 
 import passport from "./passport/local-auth.js";
-import daosContenedor from "./daos/index.js";
+import daosContenedor from "./data/daos/index.js";
 import router from "./routes/routes.js";
-import logger from "./winston.js";
-
+import logger from "./tools/winston.js";
+import sessionMiddleware from "./modules/session/middleware.js";
 
 const runServer = (port) => {
     const app = express();
 
     // ARCHIVOS ESTATICOS
-    app.use(express.static("views/layouts"));
-
-    // SERVER
-    const server = http.createServer(app);
+    app.use(express.static("./views/layouts"));
 
     //SESSION
     app.use(cookieParser());
-    app.use(
-        session({
-            secret: "secret",
-            cookie: { maxAge: 600000 },
-            resave: true,
-            rolling: true,
-            saveUninitialized: true,
-            store: MongoStore.create({
-                mongoUrl: process.env.MONGODB_ATLAS_CLUSTER,
-                mongoOptions: {
-                    useNewUrlParser: true,
-                    useUnifiedTopology: true,
-                },
-            }),
-            cookie: {
-                maxAge: 600000,
-            },
-        })
-    );
+    app.use(sessionMiddleware);
 
-    // MIDDLEWARE
+    // MIDDLEWARES
     app.use(express.json());
-    app.use(express.urlencoded({ extended: true }));3
-    app.use(express.static(`public`));
+    app.use(express.urlencoded({ extended: true }));
+    app.use(express.static('src/public'));
 
     // PASSPORT
     app.use(passport.initialize());
     app.use(passport.session());
 
-    // LOGGER VALID ROUTES 
-    app.use((req,res,next) => {
-        logger.info(`Route: ${req.url}, Method: ${req.method}`)
+    // LOGGER VALID ROUTES
+    app.use((req, res, next) => {
+        logger.info(`Route: ${req.url}, Method: ${req.method}`);
         next();
-    })
+    });
 
     //ROUTES
-    // app.use("/api", routerRandoms);
     app.use("/", router);
 
-    //INVALID ROUTES
+    //LOGGER INVALID ROUTES
     app.use((req, res) => {
-        logger.warn(`Invalid route: ${req.url}, Method: ${req.method}`)
+        logger.warn(`Invalid route: ${req.url}, Method: ${req.method}`);
         res.sendStatus(404);
     });
 
     // Configuracion de handlebars
     app.set("views", "./views");
-    app.set("view engine", "hbs");
     app.engine(
         "hbs",
         handlebars.engine({
-            extname: ".hbs",
             defaultLayout: "index",
             layoutsDir: "./views/layouts",
             partialsDir: "./views/partials",
+            extname: ".hbs",
         })
     );
+    app.set("view engine", "hbs");
+
+    // SERVER
+    const server = http.createServer(app);
 
     // SERVER SOCKET
     const io = new Server(server);
@@ -144,7 +121,9 @@ const runServer = (port) => {
             logger.error("Initialized server failed", error);
             process.exit();
         }
-        logger.info(`Listening on port ${port} with process id: ${process.pid}`);
+        logger.info(
+            `Listening on port ${port} with process id: ${process.pid}`
+        );
     });
 };
 

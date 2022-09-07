@@ -45,3 +45,14 @@
 {"level":"warn","message":"Invalid route: /avatar-con, Method: GET"}
 {"level":"warn","message":"Invalid route: /avatar, Method: GET"}
 {"level":"warn","message":"Invalid route: /avatar-con, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1661814011097-495594750.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
+{"level":"warn","message":"Invalid route: /socket.io/?EIO=4&transport=polling&t=OCJ9pE7, Method: GET"}
+{"level":"warn","message":"Invalid route: /socket.io/?EIO=4&transport=polling&t=OCJ9qhi, Method: GET"}
+{"level":"warn","message":"Invalid route: /socket.io/?EIO=4&transport=polling&t=OCJ9s9Y, Method: GET"}
+{"level":"warn","message":"Invalid route: /productos?admin=true, Method: GET"}
+{"level":"warn","message":"Invalid route: /api/carrito, Method: POST"}
+{"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1661814011097-495594750.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /carrito, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1661814011097-495594750.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1661814011097-495594750.png, Method: GET"}

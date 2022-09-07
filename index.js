@@ -3,7 +3,7 @@ import "dotenv/config";
 import cluster from "cluster";
 import os from "os";
 import runServer from "./app.js";
-import logger from "./winston.js";
+import logger from "./tools/winston.js";
 
 // PUERTO
 const port = process.env.PORT || parseInt(process.argv[2]) || 8080;

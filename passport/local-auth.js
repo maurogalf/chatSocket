@@ -1,7 +1,7 @@
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local'
 import bcrypt from 'bcrypt-nodejs';
-import User from "../contenedores/ContenedorMongoUsers.js"
+import User from "../data/contenedores/ContenedorMongoUsers.js"
 
 passport.use('register', new LocalStrategy(async (username, password, done)=> {
     const user = await User.findOne({username: username})

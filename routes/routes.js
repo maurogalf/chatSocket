@@ -2,21 +2,23 @@ import Router from "express";
 import os from "os";
 import compression from "compression";
 
-import daosContenedor from "../daos/index.js";
 import passport from "../passport/local-auth.js";
 import yargs from "yargs";
-import logger from "../winston.js";
-import { countryCodes } from "../data/countryCodes.js";
 import upload from "../tools/storage.js";
-import { registerMail, newOrderMail } from "../tools/nodemailer.js";
-import { sendMessage, sendWhatsapp } from "../tools/twilio.js";
-import contUserInfo from "../contenedores/ContenedorMongoUsersInfo.js";
-import contenedorProduct from "../contenedores/ContenedorMongoProducts.js";
-import contenedorOrders from "../contenedores/ContenedorMongoOrders.js";
+import contUserInfo from "../data/contenedores/ContenedorMongoUsersInfo.js";
+import getHomePage from "../controllers/getHomePage.js";
+import getRegisterPage from "../controllers/getRegisterPage.js";
+import getLoginPage from "../controllers/getLoginPage.js";
+import getFailLoginPage from "../controllers/getFailLoginPage.js";
+import getFailRegisterPage from "../controllers/getFailRegisterPage.js";
+import {setNewUser} from "../services/users/setNewUser.js";
+import { getProfilePage } from "../controllers/getProfilePage.js";
+import { setNewProduct } from "../services/products/setNewProduct.js";
+import {setNewProductToCartUser} from "../services/users/setNewProductToCartUser.js";
+import { getCartUserPage } from "../controllers/getCartUserPage.js";
+import { setNewOrder } from "../services/orders/setNewOrder.js";
 
 const userInfo = new contUserInfo();
-const product = new contenedorProduct();
-const orders = new contenedorOrders();
 
 const router = Router();
 
@@ -32,155 +34,49 @@ const args = yargs(process.argv.slice(2))
     .alias({ p: "PORT" }).argv;
 
 // RUTA PRINCIPAL
-router.get("/", isAuthenticated, (req, res) => {
-    product.getProducts().then((response) => {
-        const products = response;
-        daosContenedor
-            .getMessages()
-            .then((data) => {
-                if (data.mensajes.length > 0) {
-                    daosContenedor.compresion().then((compresion) => {
-                        res.render("home", {
-                            products: products,
-                            chat: data.mensajes,
-                            compresion: compresion,
-                            user: req.user.username,
-                        });
-                    });
-                } else {
-                    res.render("home", {
-                        products: products,
-                        chat: data.mensajes,
-                        user: req.username,
-                    });
-                }
-            })
-            .catch((err) => {
-                logger.error(err);
-            });
-    });
-});
+router.get("/", isAuthenticated,  compression(), getHomePage );
 
-router.get("/login", isNotAuthenticated, (req, res) => {
-    res.render("login");
-});
+router.get("/login", isNotAuthenticated, getLoginPage);
 
-router.post(
-    "/login",
-    passport.authenticate("login", {
+router.get("/faillogin", isNotAuthenticated, getFailLoginPage);
+
+router.get("/register", isNotAuthenticated, getRegisterPage);
+
+router.get("/failregister", getFailRegisterPage);
+
+router.post("/login", passport.authenticate("login", {
         successRedirect: "/",
         failureRedirect: "/faillogin",
-    }),
-    (req, res) => {
-        res.redirect("/");
-    }
-);
-
-router.get("/faillogin", (req, res) => {
-    res.render("login", { error: true });
-});
-
-router.get("/register", isNotAuthenticated, (req, res) => {
-    res.render("register", {countryCodes: countryCodes } );
-});
-
-router.post(
-    "/register",
+    }));
+    
+router.post("/register",
     upload.single("avatar"),
     passport.authenticate("register", { failureRedirect: "/failregister" }),
-    (req, res) => {
-        const { username, name, address, age, phone, area } = req.body;
-        const newUser = {
-            username,
-            name,
-            address,
-            age,
-            phone: `${area}${phone}`,
-            avatar: req.file.filename,
-        };
-        registerMail(newUser);
-        userInfo.saveUser(newUser);
-        res.redirect("/");
-    }
+    setNewUser
 );
-
-router.get("/failregister", (req, res) => {
-    res.render("register", { error: true });
-});
 
 router.get("/logout", (req, res) => {
     req.logout(() => res.redirect("/login"));
 });
 
-router.get("/profile", isAuthenticated, (req, res) => {
-    userInfo.getUserInfo(req.user.username).then((response) => {
-        res.render("profile", { user: response });
-    });
-});
+router.get("/profile", isAuthenticated, getProfilePage );
 
 router.get("/form", isAuthenticated, (req, res) => {
     res.render("form");
 });
 
-router.post("/form/newproduct", (req, res) => {
-    const { name, description, code, thumbnail, price, stock } = req.body;
-    const newProduct = {
-        name,
-        description,
-        code,
-        thumbnail,
-        price,
-        stock,
-        timestamp: new Date(),
-    };
-    product.saveProduct(newProduct);
-    res.redirect("/");
-});
+router.post("/form/newproduct", setNewProduct);
 
-router.post("/addproduct/:code", (req, res) => {
-    userInfo.addToCart(req.user.username, req.params.code);
-    res.redirect("/");
-});
+router.post("/addproduct/:code", setNewProductToCartUser );
 
-router.get("/cart", isAuthenticated, (req, res) => {
-    userInfo.getCart(req.user.username).then((cart) => {
-        product.getProducts().then((allProducts) => {
-            let userCart = [];
-            cart.map((cartProd) => {
-                const prod = allProducts.find((p) => p.code === cartProd.code);
-                userCart.push({ ...prod, cant: cartProd.cant });
-            });
-            const finish = userCart.length > 0;
-            res.render("cartDetail", {
-                userCart: userCart,
-                user: req.user.username,
-                showFinish: finish,
-            });
-        }).catch(err => console.error(err));
-    }).catch(err => console.log(err));
-});
+router.get("/cart", isAuthenticated, getCartUserPage);
 
 router.post("/delete/:code", (req, res) => {
     userInfo.removeFromCart(req.user.username, req.params.code);
     res.redirect("/cart");
 });
 
-router.post("/checkout", (req, res) => {
-    userInfo.getUserInfo(req.user.username).then((user) => {
-        const order = {
-            order_id: Date.now() + "-" + Math.round(Math.random() * 1e9),
-            username: user.username,
-            name: user.name,
-            cart: user.cart,
-        };
-        orders.checkOut(order);
-        newOrderMail(order);
-        sendWhatsapp(order);
-        sendMessage(order, user.phone);
-        userInfo.cleanCart(req.user.username);
-        res.redirect("/cart");
-    });
-});
+router.post("/checkout", setNewOrder);
 
 router.get("/info", (req, res) => {
     const info = {
