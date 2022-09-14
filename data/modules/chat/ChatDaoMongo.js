@@ -20,7 +20,7 @@ const mensajesSchema = new Schema({
 
 const collection = conn.model("mensaje", mensajesSchema);
 
-class ContenedorMongo {
+class ChatDaoMongo {
     async getMessages() {
         // NO RECIBE NADA Y DEVUELVE EL OBJETO MENSAJES
         try {
@@ -92,4 +92,4 @@ class ContenedorMongo {
     }
 }
 
-export default ContenedorMongo;
+export default ChatDaoMongo;

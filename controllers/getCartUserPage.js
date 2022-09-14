@@ -1,4 +1,4 @@
-import { getCartUser } from "../services/users/getCartUser.js";
+import { getCartUser } from "../services/users/Users.js";
 
 export const getCartUserPage = async (req, res) => {
     const cartUser = await getCartUser(req.user.username)

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import logger from "../../tools/winston.js";
+import logger from "../../../tools/winston.js";
 const { Schema } = mongoose;
 
 mongoose.connect(process.env.MONGODB_ATLAS_CLUSTER);

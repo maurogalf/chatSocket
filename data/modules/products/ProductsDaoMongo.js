@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-import logger from "../../tools/winston.js";
+import logger from "../../../tools/winston.js";
+import ProductsDTO from "./ProductsDTO.js";
 const { Schema } = mongoose;
 
 mongoose.connect(process.env.MONGODB_ATLAS_CLUSTER);
@@ -22,16 +23,10 @@ const productSchema = new Schema({
 
 const Product = mongoose.model("products", productSchema);
 
-class contenedorProduct {
+class ProductsDaoMongo {
     async saveProduct(product) {
-        const newProduct = new Product();
-        newProduct.name = product.name;
-        newProduct.description = product.description;
-        newProduct.code = product.code;
-        newProduct.thumbnail = product.thumbnail;
-        newProduct.price = product.price;
-        newProduct.stock = product.stock;
-        newProduct.timestamp = product.timestamp;
+        const productDto = ProductsDTO.create(product);
+        const newProduct = new Product(productDto);
         await newProduct.save();
     }
     async getProducts() {
@@ -40,4 +35,4 @@ class contenedorProduct {
     }
 }
 
-export default contenedorProduct;
+export default ProductsDaoMongo;

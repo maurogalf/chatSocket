@@ -7,7 +7,7 @@ import { faker } from "@faker-js/faker";
 import cookieParser from "cookie-parser";
 
 import passport from "./tools/passport/local-auth.js";
-import daosContenedor from "./data/daos/index.js";
+import daosContenedor from "./data/modules/chat/daoFactory.js";
 import router from "./routes/routes.js";
 import logger from "./tools/winston.js";
 import sessionMiddleware from "./tools/session/middleware.js";

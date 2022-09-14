@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import UsersDTO from "./UsersDTO.js";
 const { Schema } = mongoose;
 
 mongoose.connect(process.env.MONGODB_ATLAS_CLUSTER);
@@ -21,16 +22,10 @@ const userSchema = new Schema({
 
 const UserInfo = mongoose.model("dataUser", userSchema);
 
-class contUserInfo {
+class UsersInfoDaoMongo {
     async saveUser(user) {
-        const newUser = new UserInfo();
-        newUser.username = user.username;
-        newUser.name = user.name;
-        newUser.address = user.address;
-        newUser.age = user.age;
-        newUser.phone = user.phone;
-        newUser.avatar = user.avatar;
-        newUser.cart = [];
+        const userDto = UsersDTO.create(user);
+        const newUser = new UserInfo(userDto);
         await newUser.save();
     }
 
@@ -69,4 +64,4 @@ class contUserInfo {
     }
 }
 
-export default contUserInfo;
+export default UsersInfoDaoMongo;

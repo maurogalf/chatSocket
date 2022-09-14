@@ -1,7 +1,6 @@
-import { countryCodes } from "../data/countryCodes.js";
+import { countryCodes } from "../tools/datafiles/countryCodes.js";
 
-const getRegisterPage = (req,res) => {
+export const getRegisterPage = (req,res) => {
     res.render("register", {countryCodes: countryCodes} );
 }
 
-export default getRegisterPage;

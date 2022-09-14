@@ -4,7 +4,7 @@ import logger from "../tools/winston.js";
 
 let norm = new Normalizer();
 
-class ContenedorArchivo {
+class ChatDaoArchivo {
     constructor() {
         this.ruta = "./data/chat.json";
     }
@@ -79,4 +79,4 @@ class ContenedorArchivo {
     }
 }
 
-export default ContenedorArchivo;
+export default ChatDaoArchivo;

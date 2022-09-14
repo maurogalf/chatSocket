@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-import logger from "../../tools/winston.js";
+import logger from "../../../tools/winston.js";
+import OrderDto from "./OrdersDTO.js";
 const { Schema } = mongoose;
 
 mongoose.connect(process.env.MONGODB_ATLAS_CLUSTER);
@@ -19,15 +20,12 @@ const orderSchema = new Schema({
 
 const Order = mongoose.model("orders", orderSchema);
 
-class contenedorOrders {
+class OrdersDaoMongo {
     async checkOut(order) {
-        const newOrder = new Order();
-        newOrder.order_id = order.order_id;
-        newOrder.username = order.username;
-        newOrder.name = order.name;
-        newOrder.cart = order.cart;
+        const dtoOrder = OrderDto.create(order);
+        const newOrder = new Order(dtoOrder);
         await newOrder.save();
     }
 }
 
-export default contenedorOrders;
+export default OrdersDaoMongo;

@@ -1,7 +1,5 @@
-import { countryCodes } from "../data/countryCodes.js";
+import { countryCodes } from "../tools/datafiles/countryCodes.js";
 
-const getFailRegisterPage = (req,res) => {
+export const getFailRegisterPage = (req,res) => {
     res.render("register", {countryCodes: countryCodes, error: true});
 }
-
-export default getFailRegisterPage;

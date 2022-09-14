@@ -1,6 +1,6 @@
 import admin from "firebase-admin";
-import Normalizer from "../../tools/normalizer.js";
-import logger from "../../tools/winston.js";
+import Normalizer from "../../../tools/normalizer.js";
+import logger from "../../../tools/winston.js";
 
 let norm = new Normalizer();
 
@@ -27,10 +27,9 @@ const db = admin.firestore();
 const collection = db.collection("chatSocket");
 const mensajes = collection.doc("chatSocket");
 
-class ContenedorFirebase {
+class ChatDaoFirebase {
     // OBTENER MENSAJES
     async getMessages() {
-        // NO RECIBE NADA Y DEVUELVE EL OBJETO MENSAJES
         try {
             const data = await collection.get();
             const response = data.docs[0].data();
@@ -89,4 +88,4 @@ class ContenedorFirebase {
     }
 }
 
-export default ContenedorFirebase;
+export default ChatDaoFirebase;

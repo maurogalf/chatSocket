@@ -56,3 +56,11 @@
 {"level":"warn","message":"Invalid route: /carrito, Method: GET"}
 {"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1661814011097-495594750.png, Method: GET"}
 {"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1661814011097-495594750.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"warn","message":"Invalid route: /class=%22img-fluid, Method: GET"}
+{"level":"warn","message":"Invalid route: /class=%22img-fluid, Method: GET"}
+{"level":"warn","message":"Invalid route: /class=%22img-fluid, Method: GET"}
+{"level":"warn","message":"Invalid route: /class=%22img-fluid, Method: GET"}

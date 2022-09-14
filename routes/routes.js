@@ -1,24 +1,23 @@
 import Router from "express";
-import os from "os";
 import compression from "compression";
 
 import passport from "../tools/passport/local-auth.js";
 import yargs from "yargs";
 import upload from "../tools/storage.js";
-import contUserInfo from "../data/contenedores/ContenedorMongoUsersInfo.js";
-import getHomePage from "../controllers/getHomePage.js";
-import getRegisterPage from "../controllers/getRegisterPage.js";
-import getLoginPage from "../controllers/getLoginPage.js";
-import getFailLoginPage from "../controllers/getFailLoginPage.js";
-import getFailRegisterPage from "../controllers/getFailRegisterPage.js";
-import { setNewUser } from "../services/users/setNewUser.js";
-import { getProfilePage } from "../controllers/getProfilePage.js";
-import { setNewProduct } from "../services/products/setNewProduct.js";
-import { setNewProductToCartUser } from "../services/users/setNewProductToCartUser.js";
-import { getCartUserPage } from "../controllers/getCartUserPage.js";
-import { setNewOrder } from "../services/orders/setNewOrder.js";
 
-const userInfo = new contUserInfo();
+import { setNewProduct } from "../controllers/setNewProduct.js";
+import { setNewOrder } from "../controllers/setNewOrder.js";
+import { getHomePage } from "../controllers/getHomePage.js";
+import { getRegisterPage } from "../controllers/getRegisterPage.js";
+import { getLoginPage } from "../controllers/getLoginPage.js";
+import { getFailLoginPage } from "../controllers/getFailLoginPage.js";
+import { getFailRegisterPage } from "../controllers/getFailRegisterPage.js";
+import { setNewUser } from "../controllers/setNewUser.js";
+import { getProfilePage } from "../controllers/getProfilePage.js";
+import { setNewProductToCartUser } from "../controllers/setNewProductToCartUser.js";
+import { getCartUserPage } from "../controllers/getCartUserPage.js";
+import { removeProduct } from "../controllers/removeProduct.js";
+import { getFormPage } from "../controllers/getFormPage.js";
 
 const router = Router();
 
@@ -42,7 +41,7 @@ router.get("/faillogin", isNotAuthenticated, getFailLoginPage);
 
 router.get("/register", isNotAuthenticated, getRegisterPage);
 
-router.get("/failregister", getFailRegisterPage);
+router.get("/failregister", isNotAuthenticated, getFailRegisterPage);
 
 router.post(
     "/login",
@@ -55,7 +54,9 @@ router.post(
 router.post(
     "/register",
     upload.single("avatar"),
-    passport.authenticate("register", { failureRedirect: "/failregister" }),
+    passport.authenticate("register", {
+        failureRedirect: "/failregister",
+    }),
     setNewUser
 );
 
@@ -65,9 +66,7 @@ router.get("/logout", (req, res) => {
 
 router.get("/profile", isAuthenticated, compression(), getProfilePage);
 
-router.get("/form", isAuthenticated, (req, res) => {
-    res.render("form");
-});
+router.get("/form", isAuthenticated, getFormPage);
 
 router.post("/form/newproduct", setNewProduct);
 
@@ -75,55 +74,8 @@ router.post("/addproduct/:code", setNewProductToCartUser);
 
 router.get("/cart", isAuthenticated, getCartUserPage);
 
-router.post("/delete/:code", (req, res) => {
-    userInfo.removeFromCart(req.user.username, req.params.code);
-    res.redirect("/cart");
-});
+router.post("/delete/:code", removeProduct);
 
 router.post("/checkout", setNewOrder);
-
-// ESTAS RUTAS LAS DEJO ASI PORQUE LAS VOY A SACAR
-
-router.get("/info", (req, res) => {
-    const info = {
-        argumentos: JSON.stringify(args._),
-        platform: process.platform,
-        nodeVersion: process.version,
-        processId: process.pid,
-        dir: process.cwd(),
-        memory: process.memoryUsage().rss,
-        path: process.execPath,
-        processQ: os.cpus().length,
-    };
-    res.render("info", { info: info });
-});
-
-router.get("/info-con-consola", (req, res) => {
-    const info = {
-        argumentos: JSON.stringify(args._),
-        platform: process.platform,
-        nodeVersion: process.version,
-        processId: process.pid,
-        dir: process.cwd(),
-        memory: process.memoryUsage().rss,
-        path: process.execPath,
-        processQ: os.cpus().length,
-    };
-    res.render("info", { info: info });
-});
-
-router.get("/infozip", compression(), (req, res) => {
-    const info = {
-        argumentos: JSON.stringify(args._),
-        platform: process.platform,
-        nodeVersion: process.version,
-        processId: process.pid,
-        dir: process.cwd(),
-        memory: process.memoryUsage().rss,
-        path: process.execPath,
-        processQ: os.cpus().length,
-    };
-    res.render("info", { info: info });
-});
 
 export default router;
