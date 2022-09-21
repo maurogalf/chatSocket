@@ -64,3 +64,27 @@
 {"level":"warn","message":"Invalid route: /class=%22img-fluid, Method: GET"}
 {"level":"warn","message":"Invalid route: /class=%22img-fluid, Method: GET"}
 {"level":"warn","message":"Invalid route: /class=%22img-fluid, Method: GET"}
+{"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
+{"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
+{"level":"warn","message":"Invalid route: /products/6306997c3c72e9aa9ea3875d, Method: PUT"}
+{"level":"warn","message":"Invalid route: /products/6306997c3c72e9aa9ea3875d, Method: PUT"}
+{"level":"error"}
+{"level":"warn","message":"Invalid route: /api/productos/6328c3fd6c086d2d63a5b5f7, Method: DELETE"}
+{"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
+{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
+{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
+{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
+{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
+{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
+{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
+{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
+{"level":"warn","message":"Invalid route: /api/productdelete/, Method: GET"}
+{"level":"warn","message":"Invalid route: /api/productdelete/632a245f47999c4504d28e67, Method: GET"}
+{"level":"warn","message":"Invalid route: /api/productdelete/632a245f47999c4504d28e67, Method: DELETE"}
+{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
+{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
+{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
+{"level":"warn","message":"Invalid route: /api/products/632a262da4e3c52e3a86e028, Method: POST"}
+{"level":"warn","message":"Invalid route: /api/products/632a26c1c638ff7bf041e050, Method: POST"}
+{"level":"error"}
+{"level":"warn","message":"Invalid route: /api/products/632a4a101fdb54ad5adc3df8, Method: POST"}

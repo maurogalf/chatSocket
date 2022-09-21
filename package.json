@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node benchmark.js",
+    "test:mocha": "mocha ./tests/apirestful.test.js",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
@@ -15,6 +15,7 @@
   "dependencies": {
     "@faker-js/faker": "^7.3.0",
     "autocannon": "^7.9.0",
+    "axios": "^0.27.2",
     "bcrypt-nodejs": "^0.0.3",
     "compression": "^1.7.4",
     "connect-mongo": "^4.6.0",
@@ -37,5 +38,11 @@
     "twilio": "^3.81.0",
     "winston": "^3.8.1",
     "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "supertest": "^6.2.4"
   }
 }

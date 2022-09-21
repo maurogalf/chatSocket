@@ -1,0 +1,167 @@
+[
+  {
+    "_id": "6306985b3c72e9aa9ea38739",
+    "name": "Curso de Node.js",
+    "description": "Curso de Node.js",
+    "code": "NODE",
+    "thumbnail": "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/233_Node_Js_logo-128.png",
+    "price": 500,
+    "stock": 20,
+    "timestamp": "Wed Aug 24 2022 18:30:03 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "6306987c3c72e9aa9ea3873d",
+    "name": "Curso de ReactJS",
+    "description": "Curso de ReactJS",
+    "code": "REACT",
+    "thumbnail": "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-128.png",
+    "price": 1000,
+    "stock": 12,
+    "timestamp": "Wed Aug 24 2022 18:30:36 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "630698983c72e9aa9ea38741",
+    "name": "Curso de Angular.js",
+    "description": "Curso de Angular.js",
+    "code": "ANGJS",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/angular-js-128.png",
+    "price": 700,
+    "stock": 16,
+    "timestamp": "Wed Aug 24 2022 18:31:04 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "630698af3c72e9aa9ea38745",
+    "name": "Curso de Vue.js",
+    "description": "Curso de Vue.js",
+    "code": "VUEJS",
+    "thumbnail": "https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/vue-dot-js-128.png",
+    "price": 400,
+    "stock": 25,
+    "timestamp": "Wed Aug 24 2022 18:31:27 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "630698cc3c72e9aa9ea38749",
+    "name": "Curso de desarrollo web",
+    "description": "Curso de desarrollo web",
+    "code": "WEB",
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/logotypes/32/badge-html-5-128.png",
+    "price": 500,
+    "stock": 50,
+    "timestamp": "Wed Aug 24 2022 18:31:56 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "630698f13c72e9aa9ea3874d",
+    "name": "Curso de desarrollo móvil",
+    "description": "Curso de desarrollo móvil",
+    "code": "MOBILE",
+    "thumbnail": "https://cdn0.iconfinder.com/data/icons/rpa-robotic-process-automation/128/RPA_Robotic_Process_Automation_chatbot_smartphone_cel-128.png",
+    "price": 650,
+    "stock": 20,
+    "timestamp": "Wed Aug 24 2022 18:32:33 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "630699133c72e9aa9ea38751",
+    "name": "Curso de Photoshop",
+    "description": "Curso de Photoshop",
+    "code": "PHOTOSHOP",
+    "thumbnail": "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/23_Photoshop_Adobe_logo_logos-128.png",
+    "price": 800,
+    "stock": 15,
+    "timestamp": "Wed Aug 24 2022 18:33:07 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "6306993a3c72e9aa9ea38755",
+    "name": "Curso de Illustrator",
+    "description": "Curso de Illustrator",
+    "code": "ILLUSTRATOR",
+    "thumbnail": "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/11_Illustrator_Adobe_Ai_logo_logos-128.png",
+    "price": 750,
+    "stock": 22,
+    "timestamp": "Wed Aug 24 2022 18:33:46 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "6306995b3c72e9aa9ea38759",
+    "name": "Curso de Product Manajer",
+    "description": "Curso de Product Manajer",
+    "code": "PM",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/design-and-development-3-6/140/138-128.png",
+    "price": 900,
+    "stock": 12,
+    "timestamp": "Wed Aug 24 2022 18:34:19 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "6306997c3c72e9aa9ea3875d",
+    "name": "Curso de Javascript",
+    "description": "Curso de Javascript",
+    "code": "JS",
+    "thumbnail": "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/187_Js_logo_logos-128.png",
+    "price": 600,
+    "stock": 20,
+    "timestamp": "Wed Aug 24 2022 18:34:52 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "630699b13c72e9aa9ea38761",
+    "name": "Curso de Python",
+    "description": "Curso de Python",
+    "code": "PYTHON",
+    "thumbnail": "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/267_Python_logo-128.png",
+    "price": 600,
+    "stock": 40,
+    "timestamp": "Wed Aug 24 2022 18:35:45 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "6306a9113f0a8a5edba51cd6",
+    "name": "Curso de Node.js",
+    "description": "Curso de Node.js",
+    "code": "NODE",
+    "thumbnail": "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/233_Node_Js_logo-128.png",
+    "price": 1000,
+    "stock": 20,
+    "timestamp": "Wed Aug 24 2022 19:41:21 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "6320ab1d226a5433ef7511f9",
+    "name": "Curso de C#",
+    "description": "Curso inicial de C#",
+    "code": "C#",
+    "thumbnail": "https://www.fixedbuffer.com/wp-content/uploads/2019/06/reflexion.png",
+    "price": 1000,
+    "stock": 12,
+    "timestamp": "Tue Sep 13 2022 13:09:01 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "6320b6bcdf459449b4b6bc86",
+    "name": "Curso de Testing QA",
+    "description": "Curso inicial de Testing QA",
+    "code": "QA",
+    "thumbnail": "https://play-lh.googleusercontent.com/ntNEA0NnrqTUCSFFXVCSk0OFI-WRGjWBWWvjRwKHAvehREQ9DTD8ePDtRD97PtCujg",
+    "price": 700,
+    "stock": 5,
+    "timestamp": "Tue Sep 13 2022 13:58:36 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  },
+  {
+    "_id": "63211b949407b29f67b3aefb",
+    "name": "Curso de Java",
+    "description": "Curso de Java",
+    "code": "JV",
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/226/226777.png",
+    "price": 650,
+    "stock": 4,
+    "timestamp": "Tue Sep 13 2022 21:08:52 GMT-0300 (hora estándar de Argentina)",
+    "__v": 0
+  }
+]

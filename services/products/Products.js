@@ -1,19 +1,34 @@
 import productsDao from "../../data/modules/products/daoFactory.js";
 
 export const saveProduct = (product) => {
-    const { name, description, code, thumbnail, price, stock } = product;
-    const newProduct = {
-        name,
-        description,
-        code,
-        thumbnail,
-        price,
-        stock,
-        timestamp: new Date(),
-    };
-    productsDao.saveProduct(newProduct);
+  const { name, description, code, thumbnail, price, stock } = product;
+  const newProduct = {
+    name,
+    description,
+    code,
+    thumbnail,
+    price,
+    stock,
+    timestamp: new Date(),
+  };
+  productsDao.saveProduct(newProduct);
+  return "product saved successfully";
 };
 
 export const getProducts = async () => {
-    return await productsDao.getProducts();
+  return await productsDao.getProducts();
+};
+
+export const getProductById = async (id) => {
+  return await productsDao.getProductById(id);
+};
+
+export const updateProduct = async (id, product) => {
+  const response = await productsDao.updateProduct(id, product);
+  return "product updated successfully";
+};
+
+export const deleteProduct = async (id) => {
+  const response = await productsDao.deleteProduct(id);
+  return "product deleted";
 };
