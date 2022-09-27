@@ -12,6 +12,7 @@ import router from "./routes/routes.js";
 import apiRouter from "./routes/api.routes.js";
 import logger from "./tools/winston.js";
 import sessionMiddleware from "./tools/session/middleware.js";
+import graphMiddleware from "./graphql/graphql.js";
 
 const runServer = (port) => {
   const app = express();
@@ -27,6 +28,7 @@ const runServer = (port) => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static("src/public"));
+  app.use("/graphql", graphMiddleware);
 
   // PASSPORT
   app.use(passport.initialize());

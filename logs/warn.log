@@ -88,3 +88,4 @@
 {"level":"warn","message":"Invalid route: /api/products/632a26c1c638ff7bf041e050, Method: POST"}
 {"level":"error"}
 {"level":"warn","message":"Invalid route: /api/products/632a4a101fdb54ad5adc3df8, Method: POST"}
+{"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}

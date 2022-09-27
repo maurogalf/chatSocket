@@ -1,14 +1,6 @@
-import assert from "assert";
 import { expect } from "chai";
 import supertest from "supertest";
 import { describe, it } from "mocha";
-import {
-  deleteOneProduct,
-  getOneProduct,
-  getProducts,
-  postOneProduct,
-  updateProduct,
-} from "../client.js";
 
 const request = supertest("http://localhost:8080");
 
