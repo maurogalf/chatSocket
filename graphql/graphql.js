@@ -6,7 +6,7 @@ import { resolvers } from "./resolvers.js";
 const schemaProducts = fs
   .readFileSync("./graphql/schemas/product.graphql")
   .toString();
-const schema = buildSchema(schemaProducts);
+export const schema = buildSchema(schemaProducts);
 
 const graphMiddleware = graphqlHTTP({
   schema,

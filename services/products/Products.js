@@ -16,7 +16,12 @@ export const saveProduct = (product) => {
 };
 
 export const getProducts = async () => {
-  return await productsDao.getProducts();
+  try {
+    const products = await productsDao.getProducts();
+    return products;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getProductById = async (id) => {

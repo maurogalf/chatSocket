@@ -7,7 +7,8 @@
   "scripts": {
     "test:mocha": "mocha ./tests/apirestful.test.js",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "koa": "nodemon ./koa/index.js"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,12 @@
     "firebase-admin": "^11.0.0",
     "graphql": "^16.6.0",
     "joi": "^17.6.0",
+    "koa": "^2.13.4",
+    "koa-body": "^5.0.0",
+    "koa-graphql": "^0.12.0",
+    "koa-json": "^2.0.2",
+    "koa-mount": "^4.0.0",
+    "koa-router": "^12.0.0",
     "mongoose": "^6.4.3",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.7.8",
