@@ -1,0 +1,17 @@
+#chat {
+  position:sticky;
+  bottom: 5vw;
+  left: 90vw;
+  margin-right: 0px;
+  border: solid 1px rgb(53, 53, 53);
+  border-radius: 50%;
+  width: auto;
+}
+
+#openChat button {
+  border-radius: 50%;
+}
+
+body {
+  min-height: 100vh;
+}

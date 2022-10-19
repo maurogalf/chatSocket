@@ -1,18 +1,20 @@
 import express from "express";
 import http from "http";
-
 import { Server } from "socket.io";
-import handlebars from "express-handlebars";
-import { faker } from "@faker-js/faker";
-import cookieParser from "cookie-parser";
 
+import handlebars from "express-handlebars";
+
+import cookieParser from "cookie-parser";
 import passport from "./tools/passport/local-auth.js";
-import daosContenedor from "./data/modules/chat/daoFactory.js";
-import router from "./routes/routes.js";
-import apiRouter from "./routes/api.routes.js";
+import frontRouter from "./routes/front.routes.js";
+import apiUsersRouter from "./routes/api.users.routes.js";
 import logger from "./tools/winston.js";
 import sessionMiddleware from "./tools/session/middleware.js";
-import graphMiddleware from "./graphql/graphql.js";
+import { chat } from "./services/chat/chat.service.js";
+import { userService } from "./services/users/userInfo.service.js";
+import apiCartsRouter from "./routes/api.carts.routes.js";
+import apiOrdersRouter from "./routes/api.orders.routes.js";
+import apiProductsRouter from "./routes/api.products.routes.js";
 
 const runServer = (port) => {
   const app = express();
@@ -27,8 +29,8 @@ const runServer = (port) => {
   // MIDDLEWARES
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-  app.use(express.static("src/public"));
-  app.use("/graphql", graphMiddleware);
+  app.use(express.static("src/public/thumbnails"));
+  app.use(express.static("src/public/avatars"));
 
   // PASSPORT
   app.use(passport.initialize());
@@ -41,8 +43,11 @@ const runServer = (port) => {
   });
 
   //ROUTES
-  app.use("/", router);
-  app.use("/api", apiRouter);
+  app.use("/", frontRouter);
+  app.use("/api/products", apiProductsRouter);
+  app.use("/api/users", apiUsersRouter);
+  app.use("/api/carts", apiCartsRouter);
+  app.use("/api/orders", apiOrdersRouter);
 
   //LOGGER INVALID ROUTES
   app.use((req, res) => {
@@ -72,52 +77,24 @@ const runServer = (port) => {
   // SERVER CONECTION
   io.on("connection", (socket) => {
     //Nuevo mensaje para el chat
-    socket.on("newMsg", (data) => {
+    socket.on("newMsg", async (data) => {
       let newMsg = data;
-      daosContenedor
-        .getMessages()
-        .then((data) => {
-          let mensajes = data.mensajes;
-          let id =
-            mensajes.length > 0 ? mensajes[mensajes.length - 1].id + 1 : 1;
-          newMsg = { ...newMsg, id: id };
-          daosContenedor
-            .saveMessage(newMsg)
-            .then(() => {
-              logger.info("Saved message");
-              daosContenedor
-                .compresion()
-                .then((compresion) => {
-                  io.sockets.emit("newMsg", {
-                    newMsg,
-                    compresion,
-                  });
-                })
-                .catch((err) => {
-                  logger.error(err);
-                });
-            })
-            .catch((err) => {
-              logger.error(err);
-            });
-        })
-        .catch((err) => {
-          logger.error(err);
-        });
+      const collection = await chat.getMessages();
+      let id =
+        collection.mensajes.length > 0 ? collection.mensajes.length + 1 : 1;
+      newMsg = { ...newMsg, id: id };
+      const userInfo = await userService.getUserByEmail(newMsg.author.user);
+      newMsg.author.avatar = userInfo.avatar;
+      await chat.saveMessage(newMsg);
+      logger.info("Message saved successfully");
+      io.sockets.emit("newMsg", newMsg);
     });
-    socket.on("complete", () => {
-      let user = {
-        email: faker.internet.email(),
-        nombre: faker.name.firstName(),
-        apellido: faker.name.lastName(),
-        edad: faker.random.numeric(2),
-        alias: faker.internet.userName(),
-        avatar: faker.internet.avatar(),
-        mensaje: faker.lorem.sentence(10),
-      };
-      io.sockets.emit("complete", user);
+    socket.on("getMessages", async () => {
+      const messages = await chat.getMessages();
+      socket.emit("sendMessages", messages);
     });
   });
+
   server.listen(port, (error) => {
     if (error) {
       logger.error("Initialized server failed", error);

@@ -1,0 +1,77 @@
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid justify-content-between">
+        <div>
+            <h2 class="text-white"><span id="user">{{user}}</span> Order detail</h2>
+        </div>
+        <div>
+            <a class="btn btn-outline-success me-2" href="/productos">Products</a>
+            <a class="btn btn-outline-success me-2" href="/cart">Cart </a>
+            <a class="btn btn-outline-success me-2" href="/profile">Profile</a>
+            <a class="btn btn-outline-danger me-2" href="/logout">LogOut </a>
+        </div>
+    </div>
+</nav>
+
+{{#each orders}}
+<div class="container d-flex justify-content-center">
+    <div class="card bg-secondary text-white text-bg-secondary m-5" style="width: 80vw;">
+        <h3 class="p-2">Order n° {{this.order_id}} details:</h3>
+        <div class="row g-0">
+            <div class="col-md-12">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-secondary text-white">Name: {{this.name}}</li>
+                        <li class="list-group-item bg-secondary text-white">E-mail: {{this.email}}</li>
+                        <li class="list-group-item bg-secondary text-white">Date: {{this.date}}</li>
+                        <li class="list-group-item bg-secondary text-white">Address: {{this.address}}</li>
+                        <li class="list-group-item bg-secondary text-white">State: {{this.state}}</li>
+                    </ul>
+                </div>
+                <table class="table table-dark table-striped mt-5">
+                    <thead>
+                        <tr>
+                            <th scope="col">Code</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Cant</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Sub-Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="form">
+                        {{#each this.items}}
+                        <tr>
+                            <th>
+                                {{this.code}}
+                            </th>
+                            <td>
+                                {{this.name}}
+                            </td>
+                            <td>
+                                {{this.cant}}
+                            </td>
+                            <td>
+                                $ {{this.price}}
+                            </td>
+                            <td>
+                                $ {{this.total}}
+                            </td>
+                        </tr>
+                        {{/each}}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th scope="row">
+                                Total
+                            </th>
+                            <th scope="row">
+                                $ {{this.total}}
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}

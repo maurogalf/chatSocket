@@ -1,10 +1,12 @@
-let usersDao;
+let usersInfoDao;
 
 switch (process.env.DAO_TYPE_USERS) {
-    case "MONGODB":
-        const { default : UsersInfoDaoMongo } = await import ("./UsersInfoDaoMongo.js")
-        usersDao = new UsersInfoDaoMongo()
-        break
+  case "MONGODB":
+    const { default: UsersInfoDaoMongo } = await import(
+      "./UsersInfoDaoMongo.js"
+    );
+    usersInfoDao = new UsersInfoDaoMongo();
+    break;
 }
 
-export default usersDao;
+export default usersInfoDao;

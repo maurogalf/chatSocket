@@ -1,0 +1,47 @@
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid justify-content-between">
+        <div>
+            <h2 class="text-white">Welcome <span id="user">{{user}}</span></h2>
+        </div>
+        <div>
+            <a class="btn btn-outline-success me-2" href="/productos">Products</a>
+            <a class="btn btn-outline-success me-2" href="/cart">Cart </a>
+            <a class="btn btn-outline-success me-2" href="/profile">Profile</a>
+            <a class="btn btn-outline-danger me-2" href="/logout">LogOut </a>
+        </div>
+    </div>
+</nav>
+{{#if error}}
+<div class="container d-flex justify-content-center">
+    <h3 class="text-white">
+        Error: {{errorMessage}}
+    </h3>
+</div>
+{{else}}
+<div class="container d-flex justify-content-center">
+    <div class="card bg-secondary text-white text-bg-secondary m-5" style="width: 80vw;">
+        <div class="row g-0">
+            <div class="col-md-4 d-flex p-4 justify-content-center">
+                <img src="/{{product.thumbnail}}" class="rounded mx-auto d-block" style="max-width: 100%;"
+                    alt={{product.name}}>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">{{product.name}}</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-secondary">{{product.description}}</li>
+                        <li class="list-group-item bg-secondary">Category: {{product.category}}</li>
+                        <li class="list-group-item bg-secondary">Price: $ {{product.price}}</li>
+                        <li class="list-group-item bg-secondary">Stock: {{product.stock}}</li>
+                        <li class="list-group-item bg-secondary d-flex justify-content-center my-4">
+                            <form action="/productos/{{product.code}}" method="post">
+                                <button type="submit" class="btn btn-success">Add to cart 🛒</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}

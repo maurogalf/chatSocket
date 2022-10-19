@@ -1,8 +1,9 @@
 import Joi from "joi";
 
 const dtoProductSchema = Joi.object().keys({
-  name: Joi.string().required().min(3),
+  name: Joi.string().required().min(2),
   description: Joi.string().required().min(10),
+  category: Joi.string().required().min(1),
   code: Joi.string().required().min(2),
   thumbnail: Joi.string().required().min(10),
   price: Joi.number().required().greater(100),
@@ -11,31 +12,23 @@ const dtoProductSchema = Joi.object().keys({
 });
 
 class ProductsDTO {
-  constructor(name, description, code, thumbnail, price, stock, timestamp) {
-    this.name = name;
-    this.description = description;
-    this.code = code;
-    this.thumbnail = thumbnail;
-    this.price = price;
-    this.stock = stock;
-    this.timestamp = timestamp;
+  constructor(product) {
+    this.name = product.name;
+    this.description = product.description;
+    this.category = product.category;
+    this.code = product.code;
+    this.thumbnail = product.thumbnail;
+    this.price = product.price;
+    this.stock = product.stock;
+    this.timestamp = product.timestamp;
   }
 
   static create(product) {
     const result = dtoProductSchema.validate(product);
     if (result.error) {
-      console.log(result.error);
-      throw new Error("Error al validar el formato", result.error);
+      throw new Error(result.error);
     }
-    return new ProductsDTO(
-      product.name,
-      product.description,
-      product.code,
-      product.thumbnail,
-      product.price,
-      product.stock,
-      product.timestamp
-    );
+    return new ProductsDTO(product);
   }
 }
 

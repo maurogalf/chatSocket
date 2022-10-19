@@ -1,21 +1,13 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid justify-content-between">
         <div>
-            <h2 class="text-white">User: {{user}}</h2>
+            <h2 class="text-white">User: <span id="user">{{user}}</span></h2>
         </div>
         <div>
-            <a class="navbar-brand" href="/">
-                <button class="btn btn-outline-success me-2" type="button">Products</button>
-            </a>
-            <a class="navbar-brand" href="#">
-                <button class="btn btn-outline-success me-2" disabled type="button">Cart</button>
-            </a>
-            <a class="navbar-brand" href="/profile">
-                <button class="btn btn-outline-success me-2" type="button">Profile</button>
-            </a>
-            <a class="navbar-brand" href="/logout">
-                <button class="btn btn-outline-danger me-2" type="button">LogOut</button>
-            </a>
+            <a class="btn btn-outline-success me-2" href="/productos">Products</a>
+            <a class="btn btn-outline-success me-2 disabled" href="/cart">Cart </a>
+            <a class="btn btn-outline-success me-2" href="/profile">Profile</a>
+            <a class="btn btn-outline-danger me-2" href="/logout">LogOut </a>
         </div>
     </div>
 </nav>
@@ -54,7 +46,7 @@
                 <img style="max-width: 50px;" src={{this.thumbnail}}>
             </td>
             <td>
-                <form action="delete/{{this.code}}" , method="POST">
+                <form action="cart/delete/{{this.code}}" , method="POST">
                     <button name="_DELETE" type="submit" class="btn btn-danger">Eliminar</button>
                 </form>
             </td>

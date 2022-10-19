@@ -14,6 +14,7 @@ mongoose.connection.on("open", () => {});
 const productSchema = new Schema({
   name: String,
   description: String,
+  category: String,
   code: String,
   thumbnail: String,
   price: Number,
@@ -33,9 +34,15 @@ class ProductsDaoMongo {
     const response = await Product.find({}).lean();
     return response;
   }
+  async getProductsByCategory(category) {
+    return await Product.find({ category: category }).lean();
+  }
   async getProductById(id) {
-    const response = await Product.find({ _id: id }).lean();
+    const response = await Product.findOne({ _id: id }).lean();
     return response;
+  }
+  async getProductByCode(code) {
+    return await Product.findOne({ code: code }).lean();
   }
   async updateProduct(id, product) {
     const response = await Product.findOneAndUpdate({ _id: id }, product);

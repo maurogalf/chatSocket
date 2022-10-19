@@ -5,63 +5,51 @@ const { Schema } = mongoose;
 mongoose.connect(process.env.MONGODB_ATLAS_CLUSTER);
 
 mongoose.connection.on("error", (err) => {
-    console.error(err);
+  console.error(err);
 });
 
 mongoose.connection.on("open", () => {});
 
 const userSchema = new Schema({
-    username: String,
-    name: String,
-    address: String,
-    age: Number,
-    phone: Number,
-    avatar: String,
-    cart: Array
+  username: String,
+  name: String,
+  address: String,
+  age: Number,
+  phone: Number,
+  avatar: String,
+  cart: Array,
+  level: String,
 });
 
 const UserInfo = mongoose.model("dataUser", userSchema);
 
 class UsersInfoDaoMongo {
-    async saveUser(user) {
-        const userDto = UsersDTO.create(user);
-        const newUser = new UserInfo(userDto);
-        await newUser.save();
-    }
+  async getAllUsers() {
+    return await UserInfo.find().lean();
+  }
 
-    async getUserInfo(username) {
-        const response = await UserInfo.find({ username: username }).lean();
-        return response[0];
-    }
+  async getUserById(userId) {
+    const response = await UserInfo.find({ _id: userId }).lean();
+    return response[0];
+  }
 
-    async addToCart(user, code) {
-        let newUserInfo = await this.getUserInfo(user)
-        const index = newUserInfo.cart.map(object => object.code).indexOf(code);
-        if(newUserInfo.cart.length === 0 || index === -1) {
-            newUserInfo.cart.push({ code:code, cant: 1})
-        } else {
-            newUserInfo.cart[index].cant = newUserInfo.cart[index].cant + 1; 
-        }
-        await UserInfo.findOneAndUpdate( { username: user }, newUserInfo )
-        return newUserInfo;
-    }
+  async getUserByEmail(email) {
+    const user = await UserInfo.findOne({ username: email }).lean();
+    return user;
+  }
 
-    async getCart(user) {
-        const response = await UserInfo.find({ username: user}).lean();
-        return response[0].cart
-    }
+  async saveUser(user) {
+    const userDto = UsersDTO.create(user);
+    const newUser = new UserInfo(userDto);
+    return await newUser.save();
+  }
 
-    async removeFromCart(user, code) {
-        let newUserInfo = await this.getUserInfo(user)
-        newUserInfo.cart = newUserInfo.cart.filter(product=> product.code !== code);
-        await UserInfo.findOneAndUpdate( { username: user }, newUserInfo )
-    }
-
-    async cleanCart ( user ) {
-        let newUserInfo = await this.getUserInfo(user)
-        newUserInfo.cart = [];
-        await UserInfo.findOneAndUpdate( { username: user }, newUserInfo )
-    }
+  async updateUser(userId, user) {
+    return await UserInfo.findOneAndUpdate({ _id: userId }, user);
+  }
+  async deleteUser(userId) {
+    return await UserInfo.findOneAndDelete({ _id: userId });
+  }
 }
 
 export default UsersInfoDaoMongo;

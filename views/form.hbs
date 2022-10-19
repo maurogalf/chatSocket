@@ -5,34 +5,43 @@
             <a href="../productos?admin=true">
                 <button type="button" class="btn bg-white">Ver Productos</button>
             </a>
-            <form action="/api/carrito", method="post">
+            <form action="/api/carrito" , method="post">
                 <button type="submit" class="btn bg-white">Crear Nuevo Carrito</button>
             </form>
         </div>
     </nav>
-    <form action="form/newproduct?admin=true", method="post">
+    <form action="form/newproduct?admin=true" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="title" class="form-label text-white">Titulo del curso</label>
-            <input name="name" type="text" class="form-control" id="name" >
+            <input name="name" type="text" class="form-control" id="name">
         </div>
         <div class="mb-3">
             <label for="price" class="form-label text-white">Descripción</label>
             <input name="description" type="text" class="form-control" id="description">
         </div>
         <div class="mb-3">
+            <label for="price" class="form-label text-white">Categría</label>
+            <select class="form-select" aria-label="Default select example" name="category" id="category">
+                <option selected>Elija una categoría</option>
+                <option value="diseno">Diseño</option>
+                <option value="data">Data</option>
+                <option value="programacion">Programación</option>
+            </select>
+        </div>
+        <div class="mb-3">
             <label for="price" class="form-label text-white">Código</label>
             <input name="code" type="text" class="form-control" id="code">
         </div>
         <div class="mb-3">
-            <label for="price" class="form-label text-white">Link a la imagen</label>
-            <input name="thumbnail" type="text" class="form-control" id="thumbnail">
+            <label for="price" class="form-label text-white">Imagen</label>
+            <input onChange="formChange()" type="file" class="form-control" id="thumbnail" name="thumbnail">
         </div>
         <div class="mb-3">
             <label for="price" class="form-label text-white">Precio</label>
             <input name="price" type="text" class="form-control" id="price">
         </div>
         <div class="mb-3">
-            <label for="thumbnail" class="form-label text-white">Stock</label>
+            <label for="stock" class="form-label text-white">Stock</label>
             <input name="stock" type="number" class="form-control" id="stock">
         </div>
         <button type="submit" class="btn btn-primary">Enviar</button>

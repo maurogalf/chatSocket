@@ -1,93 +1,72 @@
 {"level":"warn","message":"Invalid routes: undefined"}
-{"level":"warn","message":"Invalid routes: undefined"}
-{"level":"warn","message":"Invalid routes: /info2"}
-{"level":"warn","message":"Invalid routes: /info2methodGET"}
-{"level":"warn","message":"Invalid routes: /info2methodGET"}
-{"level":"warn","message":"Invalid routes: /pepemethodGET"}
-{"level":"warn","message":"Invalid route: /pepe, Method: GET"}
+{"level":"warn","message":"Invalid route: /chase-1665588879489-500325791.png%22, Method: GET"}
+{"level":"warn","message":"Invalid route: /api/carts/maurogalfonso@gmail.com, Method: GET"}
+{"level":"warn","message":"Invalid route: /api/carts/maurogalfonso@gmail.com, Method: POST"}
+{"level":"warn","message":"Invalid route: /carts/, Method: GET"}
 {"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
 {"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
-{"level":"warn","message":"Invalid route: /failregister, Method: POST"}
-{"level":"warn","message":"Invalid route: /avatar-1661367812746-212316152.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /storage//images//avatar-1661367812746-212316152.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-1661368169455-237660969.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-1661368290931-927744412.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-1661368621374-463748116.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-1661368621374-463748116, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-1661368621374-463748116, Method: GET"}
-{"level":"warn","message":"Invalid route: /prfile, Method: GET"}
-{"level":"warn","message":"Invalid route: /..., Method: GET"}
-{"level":"warn","message":"Invalid route: /..., Method: GET"}
-{"level":"warn","message":"Invalid route: /..., Method: GET"}
-{"level":"warn","message":"Invalid route: /..., Method: GET"}
-{"level":"warn","message":"Invalid route: /form/newproduct?admin=true, Method: POST"}
-{"level":"warn","message":"Invalid route: /form/newproduct?admin=true, Method: POST"}
-{"level":"warn","message":"Invalid route: /addproduct:REACT?, Method: GET"}
-{"level":"warn","message":"Invalid route: /addproduct?, Method: GET"}
-{"level":"warn","message":"Invalid route: /addproduct/REACT?, Method: GET"}
-{"level":"warn","message":"Invalid route: /addproduct/REACT?, Method: GET"}
-{"level":"warn","message":"Invalid route: /addproduct?, Method: GET"}
-{"level":"warn","message":"Invalid route: /addproduct?, Method: GET"}
-{"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
-{"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
-{"level":"warn","message":"Invalid route: /delete/VUEJS, Method: POST"}
-{"level":"warn","message":"Invalid route: /delete/VUEJS, Method: POST"}
-{"level":"warn","message":"Invalid route: /products, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-1661800919272-814226921.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-1661805406211-289708428.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /undefined-1661805839923-158565733.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /undefined-1661806209295-27059461.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-1661800919272-814226921.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-1661800919272-814226921.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-1661800919272-814226921.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-1661800919272-814226921.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-con, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-con, Method: GET"}
-{"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1661814011097-495594750.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
-{"level":"warn","message":"Invalid route: /socket.io/?EIO=4&transport=polling&t=OCJ9pE7, Method: GET"}
-{"level":"warn","message":"Invalid route: /socket.io/?EIO=4&transport=polling&t=OCJ9qhi, Method: GET"}
-{"level":"warn","message":"Invalid route: /socket.io/?EIO=4&transport=polling&t=OCJ9s9Y, Method: GET"}
 {"level":"warn","message":"Invalid route: /productos?admin=true, Method: GET"}
-{"level":"warn","message":"Invalid route: /api/carrito, Method: POST"}
+{"level":"warn","message":"Invalid route: /productos, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1665761999611-577423175.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /reflexion-1665763786939-706205868.png, Method: GET"}
 {"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1661814011097-495594750.png, Method: GET"}
-{"level":"warn","message":"Invalid route: /carrito, Method: GET"}
+{"level":"warn","message":"Invalid route: /angular-1665764281290-1799361.webp, Method: GET"}
+{"level":"warn","message":"Invalid route: /233_node_js_logo-128-1665764081041-940977713.webp, Method: GET"}
+{"level":"warn","message":"Invalid route: /reflexion-1665763786939-706205868.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1661814011097-495594750.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /angular-1665764281290-1799361.webp, Method: GET"}
+{"level":"warn","message":"Invalid route: /233_node_js_logo-128-1665764081041-940977713.webp, Method: GET"}
+{"level":"warn","message":"Invalid route: /angular-1665764281290-1799361, Method: GET"}
+{"level":"warn","message":"Invalid route: /angular-1665764281290-1799361.webp, Method: GET"}
+{"level":"warn","message":"Invalid route: /angular-1665764281290-1799361.webp, Method: GET"}
+{"level":"warn","message":"Invalid route: /angular-1665764281290-1799361.webp, Method: GET"}
+{"level":"warn","message":"Invalid route: /reflexion-1665763786939-706205868.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1661814011097-495594750.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /233_node_js_logo-128-1665764081041-940977713.webp, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1661814011097-495594750.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1665761999611-577423175.png, Method: GET"}
+{"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1665761999611-577423175.png, Method: GET"}
 {"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1661814011097-495594750.png, Method: GET"}
 {"level":"warn","message":"Invalid route: /avatar-con-espacio-y-mayusculas-1661814011097-495594750.png, Method: GET"}
 {"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
-{"level":"error"}
-{"level":"error"}
-{"level":"error"}
-{"level":"warn","message":"Invalid route: /class=%22img-fluid, Method: GET"}
-{"level":"warn","message":"Invalid route: /class=%22img-fluid, Method: GET"}
-{"level":"warn","message":"Invalid route: /class=%22img-fluid, Method: GET"}
-{"level":"warn","message":"Invalid route: /class=%22img-fluid, Method: GET"}
+{"level":"warn","message":"Invalid route: /products, Method: GET"}
+{"level":"warn","message":"Invalid route: /productos, Method: GET"}
+{"level":"warn","message":"Invalid route: /productos, Method: GET"}
+{"level":"warn","message":"Invalid route: /products/ANGJS?, Method: GET"}
+{"level":"warn","message":"Invalid route: /products/ANGJS?, Method: GET"}
+{"level":"warn","message":"Invalid route: /delete/NODE, Method: POST"}
+{"level":"warn","message":"Invalid route: /delete/REACT, Method: POST"}
+{"level":"warn","message":"Invalid route: /delete/NODE, Method: POST"}
+{"level":"warn","message":"Invalid route: /delete/NODE, Method: POST"}
+{"level":"warn","message":"Invalid route: /, Method: GET"}
+{"level":"warn","message":"Invalid route: /, Method: GET"}
+{"level":"warn","message":"Invalid route: /, Method: GET"}
+{"level":"warn","message":"Invalid route: /, Method: GET"}
+{"level":"warn","message":"Invalid route: /, Method: GET"}
+{"level":"warn","message":"Invalid route: /, Method: GET"}
+{"level":"warn","message":"Invalid route: /, Method: GET"}
+{"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
+{"level":"warn","message":"Invalid route: /, Method: GET"}
 {"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
 {"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
-{"level":"warn","message":"Invalid route: /products/6306997c3c72e9aa9ea3875d, Method: PUT"}
-{"level":"warn","message":"Invalid route: /products/6306997c3c72e9aa9ea3875d, Method: PUT"}
+{"level":"warn","message":"Invalid route: /order, Method: GET"}
+{"level":"warn","message":"Invalid route: /checkout, Method: GET"}
+{"level":"warn","message":"Invalid route: /orders, Method: GET"}
+{"level":"warn","message":"Invalid route: /orders/, Method: GET"}
 {"level":"error"}
-{"level":"warn","message":"Invalid route: /api/productos/6328c3fd6c086d2d63a5b5f7, Method: DELETE"}
+{"level":"warn","message":"Cast to ObjectId failed for value \"634d6cb6359ca1f29776409\" (type string) at path \"_id\" for model \"products\""}
+{"level":"warn","message":"Cast to ObjectId failed for value \"634d6cb6359ca1f29776409\" (type string) at path \"_id\" for model \"products\""}
+{"level":"warn","message":"Cast to ObjectId failed for value \"634d6cb6359ca1f29776409\" (type string) at path \"_id\" for model \"products\""}
+{"level":"warn","message":"Cast to ObjectId failed for value \"634d6cb6359ca1f29776409\" (type string) at path \"_id\" for model \"products\""}
+{"level":"warn","message":"Cast to ObjectId failed for value \"634d6cb6359ca1f29776409\" (type string) at path \"_id\" for model \"products\""}
+{"level":"warn","message":"Product not found"}
+{"level":"warn","message":"Cast to ObjectId failed for value \"634d6cb6359ca1f2977640910\" (type string) at path \"_id\" for model \"products\""}
+{"level":"warn","message":"Cast to ObjectId failed for value \"634d6cb6359ca1f2977640911\" (type string) at path \"_id\" for model \"products\""}
+{"level":"warn","message":"Cast to ObjectId failed for value \"634d6d22359ca1f29776409\" (type string) at path \"_id\" for model \"products\""}
+{"level":"warn","message":"Product not found"}
+{"level":"warn","message":"Product not found 634d6d22359ca1f297764092"}
+{"level":"warn","message":"Product not found \"634d6d22359ca1f297764092\""}
+{"level":"warn","message":"Cast to ObjectId failed for value \"casita\" (type string) at path \"_id\" for model \"products\""}
+{"level":"warn","message":"Error getting product \"casita\""}
 {"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
-{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
-{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
-{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
-{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
-{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
-{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
-{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
-{"level":"warn","message":"Invalid route: /api/productdelete/, Method: GET"}
-{"level":"warn","message":"Invalid route: /api/productdelete/632a245f47999c4504d28e67, Method: GET"}
-{"level":"warn","message":"Invalid route: /api/productdelete/632a245f47999c4504d28e67, Method: DELETE"}
-{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
-{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
-{"level":"warn","message":"Invalid route: /api/products/, Method: DELETE"}
-{"level":"warn","message":"Invalid route: /api/products/632a262da4e3c52e3a86e028, Method: POST"}
-{"level":"warn","message":"Invalid route: /api/products/632a26c1c638ff7bf041e050, Method: POST"}
-{"level":"error"}
-{"level":"warn","message":"Invalid route: /api/products/632a4a101fdb54ad5adc3df8, Method: POST"}
-{"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
-{"level":"warn","message":"Invalid route: /favicon.ico, Method: GET"}
-{"level":"warn","message":"Invalid route: /new, Method: GET"}
+{"level":"warn","message":"Invalid route: /11_illustrator_adobe_ai_logo_logos-128-1666019167526-693130938, Method: GET"}
