@@ -37,7 +37,6 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "socket.io": "^4.5.0",
-    "twilio": "^3.81.0",
     "winston": "^3.8.1",
     "yargs": "^17.5.1"
   },

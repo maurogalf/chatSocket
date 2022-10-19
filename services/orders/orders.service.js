@@ -1,6 +1,5 @@
 import ordersDao from "../../data/modules/orders/daoFactory.js";
 import { newOrderMail } from "../../tools/nodemailer.js";
-import { sendMessage, sendWhatsapp } from "../../tools/twilio.js";
 import { cartService } from "../cart/cart.service.js";
 import { userService } from "../users/userInfo.service.js";
 
@@ -50,8 +49,6 @@ class OrdersService {
     });
     ordersDao.createOrder(newOrder);
     newOrderMail(newOrder);
-    // sendWhatsapp(order);
-    // sendMessage(order, user.phone);
     cartService.deleteCartByEmail(email);
     return newOrder;
   }
