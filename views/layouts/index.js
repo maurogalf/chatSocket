@@ -131,6 +131,7 @@ const isImage = (filename) => {
     case "gif":
     case "bmp":
     case "svg":
+    case "webp":
       return true;
   }
   return false;

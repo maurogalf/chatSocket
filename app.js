@@ -15,6 +15,7 @@ import { userService } from "./services/users/userInfo.service.js";
 import apiCartsRouter from "./routes/api.carts.routes.js";
 import apiOrdersRouter from "./routes/api.orders.routes.js";
 import apiProductsRouter from "./routes/api.products.routes.js";
+import cors from "cors";
 
 const runServer = (port) => {
   const app = express();
@@ -31,6 +32,7 @@ const runServer = (port) => {
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static("src/public/thumbnails"));
   app.use(express.static("src/public/avatars"));
+  app.use(cors());
 
   // PASSPORT
   app.use(passport.initialize());
