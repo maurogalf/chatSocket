@@ -1,6 +1,13 @@
 import { userService } from "../../services/users/userInfo.service.js";
 
 class ApiUsersController {
+  //HACER EL LOGIN Y REGISTER
+  async login(req, res) {
+    res.send(`Llegan las credenciales: 
+    username: ${req.body.username}
+    password: ${req.body.password}`);
+  }
+
   async getAllUsers(req, res) {
     res.send(await userService.getAllUsers());
   }

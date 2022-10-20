@@ -1,9 +1,6 @@
-import { cartService } from "../../services/cart/cart.service.js";
 import { ordersService } from "../../services/orders/orders.service.js";
 import { productService } from "../../services/products/products.service.js";
-import { userService } from "../../services/users/userInfo.service.js";
 import { countryCodes } from "../../tools/datafiles/countryCodes.js";
-import logger from "../../tools/winston.js";
 
 class FrontendController {
   getLoginPage(req, res) {

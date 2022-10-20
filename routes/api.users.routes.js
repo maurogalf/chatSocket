@@ -4,6 +4,8 @@ import upload from "../tools/storage.js";
 
 const apiUsersRouter = new Router();
 
+apiUsersRouter.post("/login", apiUsersController.login);
+
 apiUsersRouter.get("/", apiUsersController.getAllUsers);
 
 apiUsersRouter.get("/:id", apiUsersController.getUserById);
