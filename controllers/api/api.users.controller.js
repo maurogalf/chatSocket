@@ -1,11 +1,12 @@
 import { userService } from "../../services/users/userInfo.service.js";
+import { jwtGenerate } from "../../tools/jwt.js";
 
 class ApiUsersController {
   //HACER EL LOGIN Y REGISTER
   async login(req, res) {
-    res.send(`Llegan las credenciales: 
-    username: ${req.body.username}
-    password: ${req.body.password}`);
+    const user = await userService.getUserByEmail(req.body.username);
+    const token = jwtGenerate({ user: user.username, level: user.level });
+    res.status(200).send({ token });
   }
 
   async getAllUsers(req, res) {
