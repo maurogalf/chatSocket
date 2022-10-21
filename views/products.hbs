@@ -40,32 +40,27 @@
 <div class="bg-light p-3 rounded">
     <div class="bg-dark p-3 rounded row container-fluid justify-content-center">
         <h2 class="text-white text-center">Chat</h2>
-        <div id="compBox">
-        {{#if compresion}}
-            <h3 class="text-white text-center">Compression percentage : <span id="compresion">{{compresion}}</span>%</h3>
-        {{/if}}
-        </div>
         <button type="button" onClick="complete()" class="btn g-2 btn-info m-3">Auto-complete</button>
-        <form onsubmit="return sendMessage()" class="row g-3 justify-content-center" >
+        <form onsubmit="return sendMessage()" class="row g-3 justify-content-center">
             <div class="row g-4 justify-content-center">
-            <div class="col-auto">
-                <input type="email" class="form-control" id="email" placeholder="E-mail">
-            </div>
-            <div class="col-auto">
-                <input type="text" class="form-control" id="nombre" placeholder="Nombre">
-            </div>
-            <div class="col-auto">
-                <input type="text" class="form-control" id="apellido" placeholder="Apellido">
-            </div>
-            <div class="col-auto">
-                <input type="text" class="form-control" id="edad" placeholder="Edad">
-            </div>
-            <div class="col-auto">
-                <input type="text" class="form-control" id="alias" placeholder="Alias">
-            </div>
-            <div class="col-auto">
-                <input type="text" class="form-control" id="avatar" placeholder="Avatar">
-            </div>
+                <div class="col-auto">
+                    <input type="email" class="form-control" id="email" placeholder="E-mail">
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="apellido" placeholder="Apellido">
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="edad" placeholder="Edad">
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="alias" placeholder="Alias">
+                </div>
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="avatar" placeholder="Avatar">
+                </div>
             </div>
             <div class="col-auto">
                 <input type="text" class="form-control" id="mensaje" placeholder="Mensaje">
@@ -77,7 +72,10 @@
         <h2 class="text-white text-center">Messages</h2>
         <div id="chatBox" class="bg-light  rounded p-3" style="min-height: 200px;">
             {{#each chat}}
-            <p><img style="width:50px; height:50px" src={{this.author.avatar}} alt=""><spam class="fw-bold text-primary" > {{this.author.nombre}} {{this.author.apellido}}</spam> :  <spam class="fst-italic text-success">{{this.text}}</spam></p>
+            <p><img style="width:50px; height:50px" src={{this.author.avatar}} alt="">
+                <spam class="fw-bold text-primary"> {{this.author.nombre}} {{this.author.apellido}}</spam> : <spam
+                    class="fst-italic text-success">{{this.text}}</spam>
+            </p>
             {{/each}}
         </div>
     </div>
