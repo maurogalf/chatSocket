@@ -1,15 +1,8 @@
-import Router from "express";
+import Router, { request } from "express";
 import { apiUsersController } from "../controllers/api/api.users.controller.js";
 import upload from "../tools/storage.js";
-import passport from "../tools/passport/local-auth.js";
 
 const apiUsersRouter = new Router();
-
-apiUsersRouter.post(
-  "/login",
-  passport.authenticate("login"),
-  apiUsersController.login
-);
 
 apiUsersRouter.get("/", apiUsersController.getAllUsers);
 

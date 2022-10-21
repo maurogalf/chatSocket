@@ -1,16 +1,14 @@
-import { jwtGenerate } from "../tools/jwt.js";
+import { jwtVerify } from "../tools/jwt.js";
 
 class JwtMiddleware {
-  setHeaders(req, res, next) {
-    const user = req.user.username;
-    const token = jwtGenerate({ user });
-    res.setHeader("authorization", "Bearer " + token);
-    next();
+  tokenVerify(req, res, next) {
+    try {
+      const result = jwtVerify(req.body.token);
+      next();
+    } catch (err) {
+      res.status(401).send({ Error: err.message });
+    }
   }
-
-  verifyAutentication(req, res, next) {}
-
-  verifyAutorization(req, res, next) {}
 }
 
 export const jwtMiddleware = new JwtMiddleware();

@@ -15,7 +15,9 @@ import { userService } from "./services/users/userInfo.service.js";
 import apiCartsRouter from "./routes/api.carts.routes.js";
 import apiOrdersRouter from "./routes/api.orders.routes.js";
 import apiProductsRouter from "./routes/api.products.routes.js";
+import apiLoginRegister from "./routes/api.loginregister.routes.js";
 import cors from "cors";
+import { jwtMiddleware } from "./middleware/jwt.middleware.js";
 
 const runServer = (port) => {
   const app = express();
@@ -44,8 +46,14 @@ const runServer = (port) => {
     next();
   });
 
-  //ROUTES
+  //ROUTES FRONT
   app.use("/", frontRouter);
+
+  //ROUTES API PARA LOGIN Y REGISTER
+  app.use("/api", apiLoginRegister);
+
+  //ROUTES API PROTEGIDAS CON JWT TOKEN
+  app.use(jwtMiddleware.tokenVerify);
   app.use("/api/products", apiProductsRouter);
   app.use("/api/users", apiUsersRouter);
   app.use("/api/carts", apiCartsRouter);

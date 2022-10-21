@@ -1,5 +1,5 @@
 import { userService } from "../../services/users/userInfo.service.js";
-import { jwtGenerate } from "../../tools/jwt.js";
+import { jwtGenerate, jwtVerify } from "../../tools/jwt.js";
 
 class ApiUsersController {
   //HACER EL LOGIN Y REGISTER
@@ -7,6 +7,15 @@ class ApiUsersController {
     const user = await userService.getUserByEmail(req.body.username);
     const token = jwtGenerate({ user: user.username, level: user.level });
     res.status(200).send({ token });
+  }
+
+  checkToken(req, res) {
+    try {
+      const result = jwtVerify(req.body.token);
+      res.status(200).send({ result });
+    } catch (error) {
+      res.status(401).send(error.message);
+    }
   }
 
   async getAllUsers(req, res) {

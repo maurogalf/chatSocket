@@ -5,6 +5,8 @@ export const jwtGenerate = (payload) =>
 
 export const jwtVerify = (token) =>
   jwt.verify(token, process.env.JWT_SECRET, (err, result) => {
-    if (err) throw new Error("Invalid token received: ");
+    if (err) {
+      throw new Error(`Invalid token received: ${token}`);
+    }
     return result;
   });
