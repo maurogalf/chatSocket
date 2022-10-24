@@ -11,6 +11,7 @@ class ApiCartsController {
   }
 
   async saveProductInCart(req, res) {
+    console.log(req.body);
     res.send(
       await cartService.saveProductInCart(req.body.code, req.params.email)
     );
