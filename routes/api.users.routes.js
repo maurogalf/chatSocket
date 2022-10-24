@@ -6,6 +6,8 @@ const apiUsersRouter = new Router();
 
 apiUsersRouter.get("/", apiUsersController.getAllUsers);
 
+apiUsersRouter.get("/email/:email", apiUsersController.getUserByEmail);
+
 apiUsersRouter.get("/:id", apiUsersController.getUserById);
 
 apiUsersRouter.post("/", upload.single("avatar"), apiUsersController.saveUser);

@@ -23,6 +23,10 @@ class ApiUsersController {
     res.send(await userService.getAllUsers());
   }
 
+  async getUserByEmail(req, res) {
+    res.send(await userService.getUserByEmail(req.params.email));
+  }
+
   async getUserById(req, res) {
     res.send(await userService.getUserById(req.params.id));
   }
