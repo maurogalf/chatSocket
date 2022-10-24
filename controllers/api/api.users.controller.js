@@ -10,7 +10,7 @@ class ApiUsersController {
   }
 
   checkToken(req, res) {
-    console.log(req.body.token);
+    console.log(req.body);
     try {
       const result = jwtVerify(req.body.token);
       res.status(200).send(result);
