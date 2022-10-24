@@ -3,7 +3,8 @@ import { jwtVerify } from "../tools/jwt.js";
 class JwtMiddleware {
   tokenVerify(req, res, next) {
     try {
-      const token = req.headers.authorization.split(" ")[1];
+      const token =
+        req.headers.authorization && req.headers.authorization.split(" ")[1];
       const response = jwtVerify(token);
       res.cookie("user", response.user);
       next();
