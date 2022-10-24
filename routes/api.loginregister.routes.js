@@ -12,6 +12,6 @@ apiLoginRegister.post(
 
 apiLoginRegister.post("/register");
 
-apiLoginRegister.get("/validatetoken", apiUsersController.checkToken);
+apiLoginRegister.post("/validatetoken", apiUsersController.checkToken);
 
 export default apiLoginRegister;
