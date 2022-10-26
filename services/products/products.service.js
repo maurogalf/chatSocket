@@ -2,13 +2,14 @@ import productsDao from "../../data/modules/products/daoFactory.js";
 
 class ProductService {
   saveProduct(product, filename) {
-    const { name, description, category, code, price, stock } = product;
+    const { name, description, category, code, price, thumbnail, stock } =
+      product;
     const newProduct = {
       name,
       description,
       category,
       code,
-      thumbnail: filename,
+      thumbnail: filename || thumbnail,
       price,
       stock,
       timestamp: new Date(),

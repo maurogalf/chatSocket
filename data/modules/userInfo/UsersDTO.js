@@ -2,7 +2,7 @@ import Joi from "joi";
 
 const usersDtoSchema = Joi.object().keys({
   username: Joi.string().email().required(),
-  name: Joi.string().required().min(5),
+  name: Joi.string().required().min(2),
   address: Joi.string().required().min(5),
   age: Joi.number().required().greater(1),
   phone: Joi.number().required(),
